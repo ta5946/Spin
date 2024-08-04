@@ -1,0 +1,305 @@
+sent_id	id1	id2	out1	out2	label
+333	1418	261	FEV 1 (% predicted) in the two groups at 1, 5, 15, 30, 60 min after administration of the study drug	FEV1 (% predicted)	1
+480	1541	593	ETDRS visual acuity recorded in the laboratory, supplemented with a number of secondary lab-based visual function measures	visual acuity (VA) at normal illumination level	1
+94	137	63	≥ Grade 2 (G2) toxicity incidence	An α/β ratio for late rectal toxicity	0
+594	1707	533	CR	complete response for the whole period of nausea and vomiting	1
+381	1454	35	the incidence of oxygen desaturations defined as a decrease in oxygen saturation ≥ 5%, assessed by continuous pulse oxymetry, at any time between the start of the induction sequence and two minutes after the completion of the intubation	severe oxygen desaturations	0
+628	942	202	the EQ-5D utility	the mean treatment cost per patient	0
+103	159	65	the mean change from pre-dose FEV 1 at 12 hours post dose	FEV 1	1
+96	141	192	time to sit unsupported	total coma duration	0
+460	1519	661	PASI-75	itching VAS	0
+606	1719	704	the occurrence of any surgical-site infection within 30 days of surgery	The overall rate of surgical-site infection	1
+89	136	790	the hands-on time during the first three minutes of the cardiac arrest	delayed their first defibrillation	0
+41	62	584	weight gain after eight weeks	weight gain	1
+171	1912	966	knowledge of labour analgesia, decisional conflict (uncertainty regarding analgesia decision) and anxiety	poor follow through between antenatal analgesia intentions and use	0
+582	1671	182	the GSRS subscores for abdominal pain	GSRS abdominal pain subscore	1
+518	1591	113	ICP control	Uncontrollable intracranial pressure	1
+440	1852	633	(1) anti-malarial consumption recorded from routine statistics in ledger books of all HF before and after intervention; (2) anti-malarial prescription recorded during observed consultations in cross-sectional surveys conducted in all HF before and 18 months after m RDT implementation	anti-malarial prescription	0
+598	913	248	instrumental birth	safe	0
+154	1220	559	Total costs	RDQ	0
+533	1617	177	the frequency of decision by the specialist to offer a follow-up outpatient appointment, patient satisfaction (Ware Specific Questionnaire), wellbeing (SF12) and enablement (PEI), numbers of tests, investigations, procedures and treatments	the patient selection criteria	0
+164	1227	686	the ratio of expiratory time to reach PTEF to the total expiratory time	TEF10	0
+202	343	968	change from baseline in body mass index (BMI)	body composition	0
+516	796	618	the proportion of children achieving a well clinical response and time to a well clinical response	Mortality	0
+147	221	532	a difference of ≥ 20% in the microvascular flow index of small vessels among groups	The proportions of perfused vessels	0
+342	1423	358	differences in screening interest and patient test preferences between versions of the decision aid	screening interest	0
+683	1816	851	disability	pain	0
+108	161	856	blood pressure	glycated hemoglobin A1c	0
+78	1099	377	body weight	HDL	0
+395	1479	599	safety climate, measured using the Safety Climate Survey	the mean safety climate scores	1
+314	1372	821	cardiac death	TVR	0
+160	226	930	the total MET minutes of moderate and vigorous physical activity accrued over the past 7 days	resting heart rate	0
+144	1200	0	Anthropometry at birth	birth length	1
+492	1952	18	Kinetic force platform gait analysis (PVF BW )	MA duration	0
+427	985	1048	death from causes at study end (follow-up until at least 46 weeks after randomization)	risk of bleeding	0
+135	1883	192	incidence of adverse effects	The incidence of adverse events	1
+141	1198	917	utilization rates	outpatient costs	0
+341	1421	164	the rate of renal involvement at one year	the risk of acute gastrointestinal complications	0
+180	262	841	the determination of the perioperative concentration of IL-1β in the patient's peritoneal fluid	The overall mortality rate	0
+626	1731	259	change from baseline in fasting serum total cholesterol	simplifies treatment	0
+315	1373	699	overall success	improved performance	0
+593	1701	531	intra-operative pain	surgeon satisfaction	0
+596	913	246	induction of labour	instrumental birth	0
+314	1372	821	myocardial infarction	in-stent restenosis	0
+215	1276	830	the number of clinical episodes of P. falciparum malaria	malaria cases	1
+111	1988	942	time to extubation	ICU length of stay	0
+56	273	1001	Treatment Alliance Scale (TAS) 40 and Client Satisfaction Questionnaire (CSQ) 44 	satisfaction	0
+175	1241	146	the duration of severe neutropenia (DSN) in cycle 1	The mean DSN in cycle 1	1
+274	467	451	reduction in systolic blood pressure, total cholesterol and estimated 10-year CVD risk	simpler	0
+182	1250	293	The frequency of acute exacerbation	social domain	0
+402	646	208	the EPDS (a 10-item scale developed for use in the postnatal period, in which a score ≥ 13 identifies probable depression 33	Women's mental health scores	0
+740	1898	1085	3 types of acute-care services, defined as hospitalizations, partial hospitalizations, and visits to emergency departments (EDs)	underwent a switch from their initial antipsychotic agent	0
+381	1454	35	the incidence of oxygen desaturations defined as a decrease in oxygen saturation ≥ 5%, assessed by continuous pulse oxymetry, at any time between the start of the induction sequence and two minutes after the completion of the intubation	oxygen desaturations	1
+390	632	215	Total scores	Body Pain	0
+562	1637	869	the functional status of the patient at hospital discharge as measured by a Modified Rankin Score (MRS) and Functional Independence Measure (FIM)	unexpected deaths	0
+32	1052	12	Correlation between VPW measurements from the portable chest radiograph with the PAOP	cumulative fluid balance	0
+181	1243	325	the change relative to baseline in the multiple sclerosis functional composite score (MSFC)	reported clinical response	0
+232	389	481	comparison of the change from baseline to end of 12 weeks between simvastatin and fenofibrate	large LDLP	0
+69	396	800	PVF	NSAID use	0
+435	978	487	response rate based on a 20% improvement in WOMAC pain scores	rescue medication use	0
+767	1986	1042	daily physical activities (measured by a validated tri-axial accelerometer)	sitting time	0
+619	1731	252	change from baseline in fasting serum total cholesterol	low density lipoprotein (LDL)-cholesterol	0
+39	1062	319	the comparison of the scores on the 12-Item Short-Form Health Survey (SF-12) and the Graded Chronic Pain Scale (GCPS) questionnaire for the two survey modes	completeness of data	0
+370	607	576	HRQL	mental HRQL	1
+376	1448	729	HbA 1c level	glycaemic control	1
+570	1656	1017	change in this composite from baseline at four months post-randomization	retention	0
+294	1350	1010	the maximum change in estimated glomerular filtration rate (eGFR) within 48 hours	The incidence of creatinine-based and cystatin C-based CIN	0
+581	1668	768	the Freezing of Gait Questionnaire	cost effective	0
+53	102	827	pulmonary or cardiac toxicity	global health status	0
+240	406	264	a dichotomous measure (occurrence of low back pain)	non smoker	0
+554	859	960	blood pressure control	blood pressure	1
+57	273	1002	Treatment Alliance Scale (TAS)	satisfaction	0
+442	695	671	an ASAS40	all disease activity parameters	0
+596	913	246	relative risk	Apgar scores	0
+56	273	1001	Treatment Alliance Scale (TAS)	alliance	1
+359	626	293	the intra-individual change in the total score of the Hamilton Rating Scale for Depression (HAM-D, 17-item version) between baseline and the end of the 6-week acute phase	The number of patients who experienced remission	0
+353	586	13	the American College of Rheumatology 20% improvement criteria (ACR20) response at week 24 19 20	RA-associated losses in productivity within and outside the home	0
+692	1834	794	The MC exam	overall performances	0
+264	1329	349	the percentage of children who had ≤ 4 days with pain	the number of days with pain	1
+99	155	783	fear of falling, avoidance of activity, and daily activity	their adherence	0
+543	830	220	the change in morning peak expiratory flow (PEF) rate from baseline to the end of the treatment period (mean of weeks 23–24)	PEF	1
+56	273	1001	Client Satisfaction Questionnaire (CSQ)	alliance	0
+52	1074	835	the proportion of patients with plasma HIV-1 RNA levels <200 copies/mL at week 24	HIV-1 RNA <50 copies/mL	0
+224	1288	968	mortality	rates of adverse functional outcomes, expressed as the odds of not returning to pre-stroke functioning in their daily life	0
+596	913	246	caesarean birth	episiotomy	0
+128	1161	826	The mean decrease in HAM-D score from baseline	dry mouth	0
+363	625	386	self-reported withdrawal symptom severity during the detoxification period	urine samples negative for opiates	0
+660	1787	249	the initial rate of temperature decrease, expressed as °C/h	Temperature decline	1
+178	1243	322	the change relative to baseline in the multiple sclerosis functional composite score (MSFC)	The overall frequency of adverse events	0
+257	440	634	the number of ECT treatments given	ECT effectiveness	0
+161	1227	683	the ratio of expiratory time to reach PTEF to the total expiratory time	V PTEF / V E	0
+96	141	192	coma recovery time; time to sit unsupported, begin oral intake; duration of hospitalization; death and adverse effects	time to start oral intake	0
+596	913	246	instrumental birth	episiotomy	0
+390	632	215	Physical Function	Total dimensions	0
+180	262	841	the determination of the perioperative concentration of IL-1β in the patient's peritoneal fluid	the time to relapse	0
+373	613	989	time-to-full recovery	time-to-full recovery	1
+100	1128	941	time from the commencement of study drug to extubation	median time to extubation	1
+435	1496	908	sickness absence	SA days	1
+741	1898	1086	3 types of acute-care services, defined as hospitalizations, partial hospitalizations, and visits to emergency departments (EDs)	hospitalization	0
+156	1257	559	RDQ	IPA subscale autonomy	0
+568	1656	1013	change in this composite from baseline at four months post-randomization	cognitive and physical performance measures	0
+594	1707	533	CR	complete response for delayed nausea and vomiting	1
+338	547	58	pain visual analogue scores	Therapy effect in the second period	0
+597	913	247	relative risk	likely to have continuous electronic fetal monitoring	0
+604	924	820	unexpected ocular or systemic findings, adverse event rate, and temporary and permanent discontinuation	BCVA	0
+317	526	1074	back-related functional status and symptom bothersomeness	estimates of treatment effectiveness	0
+506	782	950	the mean time to onset of the first 24-h heartburn-free period after initial dosing	Tolerance	0
+1	0	1007	the horizontal VAS according to Jensen	free of complaints	0
+680	1812	680	duration of diarrhea (in hours) from onset and from admission until cessation of diarrhea (passage of soft/formed or no stools for two consecutive 8-hour periods), and the total stool weight in grams during hospitalization	The mean duration of diarrhea from enrolment	0
+526	1598	954	to assess the efficacy of sodium butyrate enema in improving clinical, endoscopic and histological features of shigellosis	Stool concentration of LL-37	0
+67	108	802	force platform variables PVF and impulse, the HCPI and rescue NSAIDs	the HCPI	0
+402	646	208	MCS	Women's mental health scores	0
+384	627	317	the ovicidal effect of the treatments, defined as no nymphal lice emerging from eggs between treatments	eggs	0
+78	1099	377	body weight	components of metabolic syndrome	0
+297	503	443	sustained remission, defined as freedom from relapse at the 6 months follow-up visit	sustained remission	1
+398	1479	602	safety climate, measured using the Safety Climate Survey	the safety climate attitudes	1
+259	448	1024	10-percentage point difference between arms in increase in the proportion of participants reaching the target level in five global and two patient-group specific clinical parameters at 12 months	systolic blood pressure	0
+300	1361	696	quality of life, rated by the participant and their nominated carer, as measured by the QOL-AD, both 13-item scales, scoring between 13 and 52 points with a higher score indicating better quality of life	the ADAS-Cog score	0
+448	706	136	changes between baseline and nine months of bone mineral density (BMD) of the proximal femur and lumbar spine (dual-energy X-ray absorptiometry) and serum markers of bone resorption and formation	BMD	0
+524	1702	784	a difference in timing adherence between groups	The intervention effect (difference in timing adherence pre- to post-intervention between the 2 groups)	1
+713	1862	922	pain severity	the pain scores	1
+687	1833	1069	IPV (Composite Abuse Scale CAS) and depression (Edinburgh Postnatal Depression Scale EPDS)	physical wellbeing mean scores (PCS-SF36	0
+240	1313	563	the primary process outcome	ACQ score	0
+332	1418	260	FEV 1 (% predicted) in the two groups at 1, 5, 15, 30, 60 min after administration of the study drug	the % predicted FEV1	1
+605	1717	365	changes in absenteeism, school rule infractions and suspension days during the four-month pretest period prior to randomization compared with the four-month intervention period	suspension rates	0
+236	1965	198	VS	the incidence of VS	1
+189	288	364	the number of hospital days after surgery	fluid based complications	0
+125	1153	960	LV mass	LV mass-I	1
+353	586	13	the American College of Rheumatology 20% improvement criteria (ACR20) response at week 24 19 20	SF-36 scores	0
+255	1322	223	the Glasgow Outcome Scale score 3 months after brain injury	The mortality rate	0
+151	1219	669	disease-free survival (DFS)	TC	0
+174	252	331	objective functional capacity, assessed using a 25 m walk test, a repeated chair rise test, and a stair climb test	functional capacity	1
+703	1839	1028	normalization of stool consistency	Improvement of hard stool consistency to soft stool consistency	1
+494	770	539	the time until shock reversal	plasma CoQ10 levels	0
+341	1421	164	the rate of renal involvement at one year and the rate of acute gastrointestinal complications	the risk of acute gastrointestinal complications	0
+632	945	778	the proportion of children aged 9-23 months completely vaccinated	the proportion of children completely vaccinated	1
+179	1243	323	the change relative to baseline in the multiple sclerosis functional composite score (MSFC)	MSFC score	1
+334	1418	262	FEV 1 (% predicted) in the two groups at 1, 5, 15, 30, 60 min after administration of the study drug	bronchodilatory effects	0
+406	650	168	trough forced expiratory volume in one second (FEV 1 ) at 24 h post-dose after 14 days	the mean FEV 1	1
+434	1496	906	1) physical activity, 2) work productivity, and 3) sickness absence	physical activity levels	0
+69	396	800	the use of rescue NSAIDs	NSAID use	1
+549	1630	589	the frequency of fussing and crying of the infants	sleep	0
+20	1035	1077	the parasite clearance rate constant K	The PCR-corrected adequate clinical and parasitological response (APCR) rates	0
+332	721	638	waist circumference	waist circumference	1
+469	1536	398	tube dependency at one-year and number of post-CCRT hospital admission days	probability of being cost-effective	0
+276	1337	65	crossover rate	therapy failure	0
+59	273	1004	Treatment Alliance Scale (TAS) 40 and Client Satisfaction Questionnaire (CSQ) 44 	satisfaction	0
+161	226	931	Moderate - Vigorous MET minutes of Physical Activity	cost-effective	0
+453	707	1069	health-related quality of life (HRQoL)	mood	0
+158	224	1067	foot function	foot function	1
+421	655	105	attitudes, knowledge and skills in EBM	scores in attitudes	0
+444	1502	1098	sUA < 6.0 mg/dL at final visit	sUA	1
+603	1717	363	changes in absenteeism, school rule infractions and suspension days during the four-month pretest period prior to randomization compared with the four-month intervention period	infractions	0
+568	880	255	retention in treatment, which was defined as the number of weeks that patients remained in the study before being discharged	depressive symptoms	0
+666	990	955	the mean number of oocytes retrieved	efficacy in controlled ovarian hyperstimulation	0
+96	141	192	coma recovery time	time to start oral intake	0
+309	1770	93	knee-specific patient-reported WOMAC scores	Knee-specific scores	1
+461	712	381	change in urinary HRQOL at 3 months	urinary HRQOL	1
+569	1656	1014	change in this composite from baseline at four months post-randomization	composite scores of cognitive, executive, and episodic memory function	0
+475	736	517	incidence of low back pain resulting in the seeking of health care	fear	0
+452	707	1068	health-related quality of life (HRQoL)	the Chronic Respiratory Questionnaire	0
+69	396	800	PVF	PVF	1
+261	1826	269	DFS, defined as the time from randomization until the first event: relapse (local, regional, or metastatic), contralateral breast cancer, or death from any cause	the relapse risk	0
+346	941	308	the Gastrointestinal Symptom Rating Scale-IBS version (GSRS-IBS) 42	the overall treatment effects	0
+231	389	480	comparison of the change from baseline to end of 12 weeks between simvastatin and fenofibrate	HDLP	0
+200	332	116	NRS changes	The ODQ score	0
+66	108	801	force platform variables PVF and impulse, the HCPI and rescue NSAIDs	force platform impulse	0
+89	1107	76	treatment preference	the number needed to harm	0
+345	1423	361	differences in screening interest and patient test preferences between versions of the decision aid	test choice	0
+710	1843	667	Weight-for-age Z-score	free of clinical dental sepsis	0
+108	161	856	HbA1c, lipid levels, blood pressure, BMI after 24 months of follow-up	the compliance in all the control criteria, except for LDL cholesterol	0
+392	1476	611	whether the GP had provided patients with a written asthma action plan (WAAP yes/no)	able to identify patients at high risk of severe attack	0
+106	161	854	HbA1c	Glycated hemoglobin A1c	1
+404	646	210	the EPDS (a 10-item scale developed for use in the postnatal period, in which a score ≥ 13 identifies probable depression 33 , and the physical and mental component scores (PCS and MCS) of the Short Form 36 (SF-36), a widely used general health status measure 34	the physical health of mothers six months after birth	0
+486	765	690	The Shoulder Pain and Disability Index (SPADI) at 1 year follow-up	a work status of "not working"	0
+578	1660	642	The number of destroyed alveolar attachments, expressed as a percentage over the total number of alveolar attachments,	airway stretch	0
+124	1150	623	the primary care practices' mean levels of HbA1c, cholesterol and BP, and numbers of patients with recorded foot inspections in the previous calendar month	mortality	0
+303	512	625	the reduction in systolic blood pressure defined as the average of 3 office readings with the patient in the sitting position	diastolic office BP	0
+332	721	638	change in body weight and waist circumference	waist circumference reductions	0
+171	252	328	objective functional capacity, assessed using a 25 m walk test, a repeated chair rise test, and a stair climb test	functional capacity	1
+69	396	800	the use of rescue NSAIDs	all three scores in the comparative questionnaire (locomotion, every-day situations, and skin & coat)	0
+137	1456	911	VC	%VC	1
+31	1052	11	Correlation between VPW measurements from the portable chest radiograph with the PAOP	CVP	0
+154	1220	559	Total costs	self-care	0
+466	1536	395	number of post-CCRT hospital admission days	hospital admission days	1
+289	493	405	self-rated overall effect of treatment, measured once; on the day treatment was completed	HAQ	0
+84	1103	958	global quality of life change at 6-weeks, measured by EORTC QLQ-C30	Overall response rate	0
+276	1337	65	crossover rate	mortality	0
+134	1883	191	incidence of adverse effects	the mean number of collected oocytes (primary endpoint)	0
+705	1839	1031	1) defecation frequency > 3/week; 2) normalization of stool consistency; 3) no more painful defecation; 4) absence of abdominal or rectal palpable mass at physical examination	soft stools	0
+564	1647	178	bone densitometry and serum metal ion concentration	serum metal ion concentrations	0
+190	288	365	the number of hospital days after surgery	costly	0
+274	467	451	reduction in systolic blood pressure, total cholesterol and estimated 10-year CVD risk	risk factor reductions	0
+56	273	1001	Client Satisfaction Questionnaire (CSQ)	satisfaction	1
+531	1610	301	improvement in attention scores for the intervention group	cognitive outcomes	0
+282	1339	857	improvement compared to baseline	symptoms	0
+572	881	369	the overall discomfort reported during WC versus SC pH-metry	Overall discomfort score	1
+153	223	831	change in weight from randomization (0-M) to 12 months post randomization	weight regain	1
+108	161	856	HbA1c	SBP levels	0
+456	1518	543	pain catastrophising	pain	0
+425	1821	204	participation in the Link-Up Study, through attendance at a biospecimen collection site to provide a blood sample and giving written consent to participate, including use of blood samples for genetic and other research	took part in the Link-Up Study	1
+759	1938	545	reduction in duration of severe pneumonia and pneumonia	The respiratory rate	0
+319	528	1015	GHbA1c	glycemic control	1
+605	1717	365	changes in absenteeism	rule infractions	0
+687	1833	1069	depression (Edinburgh Postnatal Depression Scale EPDS)	physical wellbeing mean scores (PCS-SF36	0
+438	1852	631	(1) anti-malarial consumption recorded from routine statistics in ledger books of all HF before and after intervention; (2) anti-malarial prescription recorded during observed consultations in cross-sectional surveys conducted in all HF before and 18 months after m RDT implementation	quinine vials	0
+234	399	1099	biochemically verified 7-day point prevalence smoking abstinence defined as no cigarettes (not even a puff) in the previous 7 days at Week 26, validated using salivary cotinine collected at Week 26	a mean serum cotinine	0
+289	1342	740	the percentage change in "average pain for the past 24 hours" NPRS scores from baseline to weeks 2 through 8	safe	0
+552	1628	376	'TQ total score'	objective audiometric examinations	0
+336	1458	751	a significant difference in mean birth weight	the proportion of women having a preterm birth	0
+673	999	1032	Chlamydia screening rates	logged on	0
+30	1051	160	incidence of malaria attacks over 8 weeks of follow up	anaemia	0
+449	706	137	changes between baseline and nine months of bone mineral density (BMD) of the proximal femur and lumbar spine (dual-energy X-ray absorptiometry) and serum markers of bone resorption and formation	physical domains of quality of life	0
+266	461	327	10-year CVD risk	absolute CVD risk reduction	1
+240	406	264	a dichotomous measure (occurrence of low back pain)	have received individualized attention via the physical/USI examination	0
+621	932	925	PDSS	panic-and agoraphobic symptoms	0
+34	50	570	IES-R	the quality of the online relationship at the end of treatment	0
+69	1085	864	the levels of inflammatory cells (neutrophils, eosinophils, macrophages, and lymphocytes) and epithelial cells in induced sputum	symptom control	0
+182	1250	293	The frequency of acute exacerbation	environment domain	0
+96	141	192	begin oral intake	total coma duration	0
+458	1519	659	PASI-75	the DLQI	0
+117	1145	1055	the number of additional donors deferred by the HQ	deferred	0
+358	626	291	the intra-individual change in the total score of the Hamilton Rating Scale for Depression (HAM-D, 17-item version) between baseline and the end of the 6-week acute phase	remission	0
+507	782	951	the mean time to onset of the first 24-h heartburn-free period after initial dosing	a 24-h heartburn-free period in moderate episodic heartburn	1
+722	1867	607	spontaneous preterm delivery between 34 and 37 weeks' gestation	spontaneous premature birth at < 37 weeks of gestation	1
+685	1816	853	pain and disability	social function	0
+137	1456	911	VC	SpO 2	0
+203	360	84	the prevalence of arm, shoulder and neck symptoms	risk indicators for work posture and movement	0
+160	1394	629	the cure-markedly effective rate	the treatment of FD of spleen-deficiency and qi-stagnation syndrome	0
+656	981	179	the proportion of patients relapse-free at Week 26	Adverse events (AEs)	0
+267	464	970	a change in the serum ALT activity	The peak mean ALT activity	1
+644	1782	879	Trough FEV 1 after 12 weeks of treatment	peak FEV 1	1
+149	221	534	a difference of ≥ 20% in the microvascular flow index of small vessels among groups	sublingual microcirculatory blood flow	0
+596	913	246	initiation of breastfeeding	caesarean birth	0
+328	543	637	body weight (kg)	weight loss	1
+128	1161	826	The mean decrease in HAM-D score from baseline	sedation	0
+369	607	575	log HbA 1c and HRQL	HbA 1c	0
+175	257	1081	adherence and participation	adherence	0
+141	1198	917	health care costs	number of outpatient visits per patient	0
+645	1782	880	Trough FEV 1 after 12 weeks of treatment	LSM (± SEM)	0
+329	1402	129	the patient assessment of spinal pain (100-mm VAS), patient global assessment of disease activity (100-mm VAS), and the Bath Ankylosing Spondylitis Functional Index (100-mm VAS)	pain	0
+538	1618	585	crying	the infant's sleep	0
+656	981	179	the proportion of patients relapse-free at Week 26	the most common AEs (influenza-like symptoms, headache, injection-site reactions)	0
+168	237	613	Aberrant Behaviour Checklist-Community (ABC-C)	functional benefits	0
+236	1965	198	VS	the use of norepinephrine	0
+734	1886	169	a sub-microscopic parasite carriage of ≥ 30% 28	transmission intensity	0
+186	1270	551	90-day mortality	costs	0
+392	1476	611	whether the GP had provided patients with a written asthma action plan (WAAP yes/no)	score higher on the asthma knowledge questionnaire	0
+62	1082	390	the extent to which the Internet affected the participants' confidence in dealing with their LTC	had used discussion forums for their LTC	0
+260	1826	268	DFS, defined as the time from randomization until the first event: relapse (local, regional, or metastatic), contralateral breast cancer, or death from any cause	DFS improvement	1
+109	210	854	blood pressure	SBP	1
+390	632	215	WOMAC Pain	Role Physical	0
+459	712	379	change in urinary HRQOL at 3 months	PSA failure	0
+374	1445	808	The AIMS2 walking and bending sub-scale	clinical outcomes	0
+410	1489	1058	PCR-corrected adequate clinical and parasitological response (ACPR) on day 28	early treatment failures	0
+124	1150	623	the primary care practices' mean levels of HbA1c, cholesterol and BP, and numbers of patients with recorded foot inspections in the previous calendar month	diastolic BP	0
+588	896	407	PK parameters and safety and tolerability	median T max	0
+433	978	485	response rate based on a 20% improvement in WOMAC pain scores	WOMAC	1
+614	929	228	the percentage of days on which the prescribed dose of medication was taken, measured objectively over 12 weeks with an electronic medication-monitoring device (TrackCap, Aardex, Switzerland)	treatment satisfaction	0
+328	1402	128	the patient assessment of spinal pain (100-mm VAS), patient global assessment of disease activity (100-mm VAS), and the Bath Ankylosing Spondylitis Functional Index (100-mm VAS)	spine pain	0
+73	112	1072	claim duration (in days) during 12 months follow-up	pain	0
+133	1163	194	the number of retrieved oocytes	local tolerability	0
+666	1790	1025	severity of mental health symptoms measured using the Hospital Anxiety and Depression Scale (HADS) 23	indirect costs	0
+276	1337	65	mortality at 30 days	mortality	1
+602	1717	362	changes in absenteeism, school rule infractions and suspension days during the four-month pretest period prior to randomization compared with the four-month intervention period	absentee periods	0
+504	782	948	the mean time to onset of the first 24-h heartburn-free period after initial dosing	overall quality of pain relief	0
+96	141	192	time to sit unsupported	Time to regain consciousness	0
+102	158	808	the mean number of detected polyps	the rate of patients with at least one adenoma	0
+463	797	377	change in EPIC urinary HRQOL domain summary score at 3 months after the completion of RT (ΔEPIC-U 3mo )	EPIC urinary HRQOL at 3 months	1
+433	1494	47	Number of headache days over a 12 week period (item A MIDAS questionnaire)	the number of migraine like headaches at 4 weeks	1
+226	389	475	comparison of the change from baseline to end of 12 weeks between simvastatin and fenofibrate	large LDLP	0
+619	1731	252	change from baseline in fasting serum total cholesterol	the mean total cholesterol	1
+368	600	34	patient-perceived recovery (PPR) 10	the outcome of SCs	0
+747	1925	248	glycemic variability, represented as SD (Glu SD ), glucose lability index ([∑(Glu n - Glu n+1 (mmol/L)) 2 *(h n+1 - h n ) -1 )*(number of readings) -1 or mean daily delta (difference between minimum and maximum) glucose	Diabetes mellitus	0
+366	1441	236	time needed to perform the motor task	time to complete the MT	1
+624	1731	257	change from baseline in fasting serum total cholesterol	Two possible abacavir-related hypersensitivity reactions	0
+597	913	247	instrumental birth	likely to have continuous electronic fetal monitoring	0
+156	224	1065	foot function	foot function	1
+111	210	856	glycated hemoglobin A1c	SBP levels	0
+96	141	192	time to sit unsupported	time to start oral intake	0
+426	1821	205	participation in the Link-Up Study, through attendance at a biospecimen collection site to provide a blood sample and giving written consent to participate, including use of blood samples for genetic and other research	response rates	1
+303	512	625	the reduction in systolic blood pressure defined as the average of 3 office readings with the patient in the sitting position	systolic office BP	1
+156	1257	559	RDQ	RDQ	1
+347	569	91	diarrhoea	Hypochlorhydria (fasting gastric pH > 4.0)	0
+300	1361	696	quality of life, rated by the participant and their nominated carer, as measured by the QOL-AD, both 13-item scales, scoring between 13 and 52 points with a higher score indicating better quality of life	participant-rated quality of life score	1
+443	695	672	an ASAS40	the Childhood Health Assessment Questionnaire-Disability Index (CHAQ-DI) score	0
+28	1051	158	incidence of malaria attacks over 8 weeks of follow up	malaria parasitaemia prevalence	0
+82	1103	956	global quality of life change at 6-weeks, measured by EORTC QLQ-C30	financial scores	0
+618	932	920	PDSS	the PDSS	1
+604	1717	364	suspension days during the four-month pretest period prior to randomization compared with the four-month intervention period	suspension days due to behavior-related problems	1
+578	886	70	Major bleeding	rate of TEs	0
+489	1542	20	PVF	responsive	0
+531	1610	301	improvement in attention scores for the intervention group	behaviour	0
+209	368	838	the mean change in modified extrinsic tooth stain index (all sites) from baseline to week 6	shade lightening	0
+438	682	590	trial feasibility, defined by randomization of >25% of eligible patients, delivery of >75% of the prescribed CRRT dose, and follow-up of >95% of patients to 60 days	dialysis dependence in survivors	0
+222	383	997	PCR-adjusted 42-day cure rates after starting treatment	parasite and fever clearance times	0
+522	808	493	time from induction to delivery and incidence of vaginal delivery within 12 and 24 hours	elective inductions of labor beyond 40 weeks of gestation	0
+264	461	325	10-year CVD risk	Prevalence of central obesity	0
+231	1291	242	antimalarial drug prescription	received antimalarial prescriptions	1
+485	765	689	The Shoulder Pain and Disability Index (SPADI) at 1 year follow-up	SPADI score at 1 year	1
+368	1444	136	the Premature Infant Pain Profile (PIPP) score in the first minute after skin puncture	PIPP scores	1
+654	1962	880	trough FEV 1 after 12 weeks of treatment (average of the 23 h 10 min and 23 h 45 min post-dose values assessed on the morning of Day 85)	LSM (± SEM)	0
+674	999	1034	Chlamydia screening rates	participation rates	0
+212	1274	1039	the incidence of predefined GI AEs	The tolerability profile	0
+687	1833	1069	IPV (Composite Abuse Scale CAS) and depression (Edinburgh Postnatal Depression Scale EPDS)	depression (EPDS score ≥13)	0
+357	626	289	the intra-individual change in the total score of the Hamilton Rating Scale for Depression (HAM-D, 17-item version) between baseline and the end of the 6-week acute phase	HAM-D total scores	1
