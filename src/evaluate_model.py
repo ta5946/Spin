@@ -7,13 +7,13 @@ import models
 
 load_dotenv()
 DATA_FILE = '../data/outcome_similarity/train.tsv'
-SIMILARITY_CLASSIFIER = models.RandomClassifier()
+SIMILARITY_CLASSIFIER = models.StemsClassifier(threshold=0.5)
 
 
 wandb.login()
 run = wandb.init(project='outcome_similarity_detection',
-                 name='RandomClassifier',
-                 config={})
+                 name='StemsClassifier',
+                 config={'threshold': 0.5})
 
 
 data = pd.read_csv(DATA_FILE, sep='\t')
