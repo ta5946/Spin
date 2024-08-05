@@ -2,6 +2,7 @@ import random
 import spacy
 from nltk.stem import WordNetLemmatizer, PorterStemmer
 from difflib import SequenceMatcher
+from gensim import downloader
 from sklearn.metrics.pairwise import cosine_similarity
 from utils import overlap_coefficient, levenshtein_distance
 
@@ -30,8 +31,10 @@ class LemmasClassifier:
         self.model = WordNetLemmatizer()
 
     def predict(self, out1, out2):
-        set1 = set([self.model.lemmatize(word) for word in out1.split()])
-        set2 = set([self.model.lemmatize(word) for word in out2.split()])
+        words1 = out1.split()
+        words2 = out2.split()
+        set1 = {self.model.lemmatize(word) for word in words1}
+        set2 = {self.model.lemmatize(word) for word in words2}
         set_similarity = overlap_coefficient(set1, set2)
         if set_similarity >= self.threshold:
             return 1
@@ -45,8 +48,10 @@ class StemsClassifier:
         self.model = PorterStemmer()
 
     def predict(self, out1, out2):
-        set1 = set([self.model.stem(word) for word in out1.split()])
-        set2 = set([self.model.stem(word) for word in out2.split()])
+        words1 = out1.split()
+        words2 = out2.split()
+        set1 = {self.model.stem(word) for word in words1}
+        set2 = {self.model.stem(word) for word in words2}
         set_similarity = overlap_coefficient(set1, set2)
         if set_similarity >= self.threshold:
             return 1
@@ -95,3 +100,23 @@ class SpacyClassifier:
             return 1
         else:
             return 0
+
+
+class GensimClassifier:
+    def __init__(self, threshold=0.5):
+        self.threshold = threshold
+        self.model = downloader.load('word2vec-google-news-300')
+
+    def predict(self, out1, out2):
+        words1 = out1.split()
+        words2 = out2.split()
+        vector1 = self.model.get_mean_vector(words1).reshape(1, -1)
+        vector2 = self.model.get_mean_vector(words2).reshape(1, -1)
+        vector_similarity = cosine_similarity(vector1, vector2)[0][0]
+        if vector_similarity >= self.threshold:
+            return 1
+        else:
+            return 0
+
+
+# TODO Ontology measure models

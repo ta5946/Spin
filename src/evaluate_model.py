@@ -6,16 +6,16 @@ from collections import Counter
 from sklearn.metrics import accuracy_score, precision_score, recall_score, f1_score
 import similarity_models
 
-start = time.time()
 load_dotenv()
+start = time.time()
 DATA_FILE = '../data/outcome_similarity/train.tsv'
-SIMILARITY_CLASSIFIER = similarity_models.SpacyClassifier(threshold=0.6)
+SIMILARITY_CLASSIFIER = similarity_models.GensimClassifier(threshold=0.5)
 
 
 wandb.login()
 run = wandb.init(project='outcome_similarity_detection',
-                 name='SpacyClassifier',
-                 config={'threshold': 0.6})
+                 name='GensimClassifier',
+                 config={'threshold': 0.5})
 
 
 data = pd.read_csv(DATA_FILE, sep='\t')
