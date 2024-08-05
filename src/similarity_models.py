@@ -1,7 +1,7 @@
 import random
+import spacy
 from nltk.stem import WordNetLemmatizer, PorterStemmer
 from difflib import SequenceMatcher
-import spacy
 from sklearn.metrics.pairwise import cosine_similarity
 from utils import overlap_coefficient, levenshtein_distance
 
