@@ -7,12 +7,12 @@ import models
 
 load_dotenv()
 DATA_FILE = '../data/outcome_similarity/train.tsv'
-SIMILARITY_CLASSIFIER = models.StemsClassifier(threshold=0.5)
+SIMILARITY_CLASSIFIER = models.LemmasClassifier(threshold=0.5)
 
 
 wandb.login()
 run = wandb.init(project='outcome_similarity_detection',
-                 name='StemsClassifier',
+                 name='LemmasClassifier',
                  config={'threshold': 0.5})
 
 
