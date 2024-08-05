@@ -1,8 +1,10 @@
 import random
 from nltk.stem import WordNetLemmatizer, PorterStemmer
+from difflib import SequenceMatcher
 from utils import overlap_coefficient, levenshtein_distance
 
 
+# Base models
 class ConstantClassifier:
     def __init__(self, constant):
         self.constant = constant
@@ -19,6 +21,7 @@ class RandomClassifier:
         return random.choice([0, 1])
 
 
+# Lexical measure models
 class LemmasClassifier:
     def __init__(self, threshold):
         self.threshold = threshold
@@ -49,6 +52,7 @@ class StemsClassifier:
             return 0
 
 
+# String measure models
 class LevenshteinClassifier:
     def __init__(self, threshold):
         self.threshold = threshold
@@ -59,3 +63,20 @@ class LevenshteinClassifier:
             return 1
         else:
             return 0
+
+
+class SequenceClassifier:
+    def __init__(self, threshold):
+        self.threshold = threshold
+        self.model = SequenceMatcher()
+
+    def predict(self, out1, out2):
+        self.model.set_seqs(out1, out2)
+        string_similarity = self.model.ratio()
+        if string_similarity >= self.threshold:
+            return 1
+        else:
+            return 0
+
+
+# TODO Vector measure models

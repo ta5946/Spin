@@ -7,13 +7,13 @@ import similarity_models
 
 load_dotenv()
 DATA_FILE = '../data/outcome_similarity/train.tsv'
-SIMILARITY_CLASSIFIER = similarity_models.LevenshteinClassifier(threshold=0.3)
+SIMILARITY_CLASSIFIER = similarity_models.SequenceClassifier(threshold=0.4)
 
 
 wandb.login()
 run = wandb.init(project='outcome_similarity_detection',
-                 name='LevenshteinClassifier',
-                 config={'threshold': 0.3})
+                 name='SequenceClassifier',
+                 config={'threshold': 0.4})
 
 
 data = pd.read_csv(DATA_FILE, sep='\t')
