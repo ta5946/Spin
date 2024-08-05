@@ -7,13 +7,13 @@ import similarity_models
 
 load_dotenv()
 DATA_FILE = '../data/outcome_similarity/train.tsv'
-SIMILARITY_CLASSIFIER = similarity_models.SequenceClassifier(threshold=0.4)
+SIMILARITY_CLASSIFIER = similarity_models.SpacyClassifier(threshold=0.6)
 
 
 wandb.login()
 run = wandb.init(project='outcome_similarity_detection',
-                 name='SequenceClassifier',
-                 config={'threshold': 0.4})
+                 name='SpacyClassifier',
+                 config={'threshold': 0.6})
 
 
 data = pd.read_csv(DATA_FILE, sep='\t')

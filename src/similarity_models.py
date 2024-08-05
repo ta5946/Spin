@@ -1,6 +1,8 @@
 import random
 from nltk.stem import WordNetLemmatizer, PorterStemmer
 from difflib import SequenceMatcher
+import spacy
+from sklearn.metrics.pairwise import cosine_similarity
 from utils import overlap_coefficient, levenshtein_distance
 
 
@@ -23,14 +25,14 @@ class RandomClassifier:
 
 # Lexical measure models
 class LemmasClassifier:
-    def __init__(self, threshold):
+    def __init__(self, threshold=0.5):
         self.threshold = threshold
         self.model = WordNetLemmatizer()
 
     def predict(self, out1, out2):
-        lemmas1 = set([self.model.lemmatize(word) for word in out1.split()])
-        lemmas2 = set([self.model.lemmatize(word) for word in out2.split()])
-        set_similarity = overlap_coefficient(lemmas1, lemmas2)
+        set1 = set([self.model.lemmatize(word) for word in out1.split()])
+        set2 = set([self.model.lemmatize(word) for word in out2.split()])
+        set_similarity = overlap_coefficient(set1, set2)
         if set_similarity >= self.threshold:
             return 1
         else:
@@ -38,14 +40,14 @@ class LemmasClassifier:
 
 
 class StemsClassifier:
-    def __init__(self, threshold):
+    def __init__(self, threshold=0.5):
         self.threshold = threshold
         self.model = PorterStemmer()
 
     def predict(self, out1, out2):
-        stems1 = set([self.model.stem(word) for word in out1.split()])
-        stems2 = set([self.model.stem(word) for word in out2.split()])
-        set_similarity = overlap_coefficient(stems1, stems2)
+        set1 = set([self.model.stem(word) for word in out1.split()])
+        set2 = set([self.model.stem(word) for word in out2.split()])
+        set_similarity = overlap_coefficient(set1, set2)
         if set_similarity >= self.threshold:
             return 1
         else:
@@ -54,7 +56,7 @@ class StemsClassifier:
 
 # String measure models
 class LevenshteinClassifier:
-    def __init__(self, threshold):
+    def __init__(self, threshold=0.3):
         self.threshold = threshold
 
     def predict(self, out1, out2):
@@ -66,7 +68,7 @@ class LevenshteinClassifier:
 
 
 class SequenceClassifier:
-    def __init__(self, threshold):
+    def __init__(self, threshold=0.4):
         self.threshold = threshold
         self.model = SequenceMatcher()
 
@@ -79,4 +81,17 @@ class SequenceClassifier:
             return 0
 
 
-# TODO Vector measure models
+# Vector measure models
+class SpacyClassifier:
+    def __init__(self, threshold=0.6):
+        self.threshold = threshold
+        self.model = spacy.load('en_core_web_md')
+
+    def predict(self, out1, out2):
+        vector1 = self.model(out1).vector.reshape(1, -1)
+        vector2 = self.model(out2).vector.reshape(1, -1)
+        vector_similarity = cosine_similarity(vector1, vector2)[0][0]
+        if vector_similarity >= self.threshold:
+            return 1
+        else:
+            return 0
