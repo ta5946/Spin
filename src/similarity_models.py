@@ -1,6 +1,6 @@
 import random
 from nltk.stem import WordNetLemmatizer, PorterStemmer
-from utils import overlap_coefficient
+from utils import overlap_coefficient, levenshtein_distance
 
 
 class ConstantClassifier:
@@ -44,6 +44,18 @@ class StemsClassifier:
         stems2 = set([self.model.stem(word) for word in out2.split()])
         set_similarity = overlap_coefficient(stems1, stems2)
         if set_similarity >= self.threshold:
+            return 1
+        else:
+            return 0
+
+
+class LevenshteinClassifier:
+    def __init__(self, threshold):
+        self.threshold = threshold
+
+    def predict(self, out1, out2):
+        string_similarity = 1 - levenshtein_distance(out1, out2)
+        if string_similarity >= self.threshold:
             return 1
         else:
             return 0

@@ -3,17 +3,17 @@ import wandb
 from dotenv import load_dotenv
 from collections import Counter
 from sklearn.metrics import accuracy_score, precision_score, recall_score, f1_score
-import models
+import similarity_models
 
 load_dotenv()
 DATA_FILE = '../data/outcome_similarity/train.tsv'
-SIMILARITY_CLASSIFIER = models.LemmasClassifier(threshold=0.5)
+SIMILARITY_CLASSIFIER = similarity_models.LevenshteinClassifier(threshold=0.3)
 
 
 wandb.login()
 run = wandb.init(project='outcome_similarity_detection',
-                 name='LemmasClassifier',
-                 config={'threshold': 0.5})
+                 name='LevenshteinClassifier',
+                 config={'threshold': 0.3})
 
 
 data = pd.read_csv(DATA_FILE, sep='\t')

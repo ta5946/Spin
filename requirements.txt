@@ -4,3 +4,4 @@ wandb~=0.17.5
 scikit-learn~=1.4.2
 python-dotenv~=1.0.1
 nltk~=3.8.1
+Levenshtein~=0.25.1
