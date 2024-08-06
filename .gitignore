@@ -1,4 +1,2 @@
 .idea
 .env
-src/__pycache__
-src/wandb
