@@ -5,6 +5,8 @@ from models.base_models import *
 from models.language_models import *
 
 DATA_FILE = '../data/outcome_similarity/train.tsv'
+
+# TODO Run all
 EXPERIMENT_MODEL = SciBert()
 EXPERIMENT_TITLE = ''
 

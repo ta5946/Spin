@@ -4,7 +4,7 @@ from nltk.stem import WordNetLemmatizer, PorterStemmer
 from difflib import SequenceMatcher
 from gensim import downloader
 from sklearn.metrics.pairwise import cosine_similarity
-from distances import *
+from .distances import *
 
 
 # Constant models
