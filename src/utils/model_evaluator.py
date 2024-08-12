@@ -1,6 +1,6 @@
 from time import time
 from tqdm import tqdm
-from sklearn.metrics import accuracy_score, precision_score, recall_score, f1_score
+from sklearn.metrics import accuracy_score, precision_score, recall_score, f1_score, roc_auc_score
 
 
 class ModelEvaluator:
@@ -8,6 +8,7 @@ class ModelEvaluator:
         self.model = model
         self.data = data
         self.n = len(data)
+        self.scores = []
         self.predictions = []
         self.evaluation_time = 0
 
@@ -17,22 +18,23 @@ class ModelEvaluator:
         for i, row in tqdm(self.data.iterrows(), total=self.n, desc='Generating predictions'):
             out1 = row['out1']
             out2 = row['out2']
-            self.predictions.append(self.model.predict(out1, out2))
+            self.scores.append(self.model.predict(out1, out2)[0])
+            self.predictions.append(self.model.predict(out1, out2)[1])
 
         end = time()
         self.evaluation_time = end - start
 
-    def get_scores(self):
+    def get_metrics(self):
         labels = self.data['label']
 
-        # TODO Auc score
-        scores = {
+        metrics = {
             'negative_ratio': self.predictions.count(0) / self.n,
             'positive_ratio': self.predictions.count(1) / self.n,
-            'accuracy:score': accuracy_score(labels, self.predictions),
+            'accuracy_score': accuracy_score(labels, self.predictions),
             'precision_score': precision_score(labels, self.predictions),
             'recall_score': recall_score(labels, self.predictions),
             'f1_score': f1_score(labels, self.predictions),
+            'auc_score': roc_auc_score(labels, self.scores),
             'evaluation_time': self.evaluation_time
         }
-        return scores
+        return metrics

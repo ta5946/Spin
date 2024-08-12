@@ -22,11 +22,9 @@ class SciBert:
         vector1 = self.get_vector(out1)
         vector2 = self.get_vector(out2)
 
-        vector_similarity = cosine_similarity(vector1, vector2)[0][0]
-        if vector_similarity >= self.threshold:
-            return 1
-        else:
-            return 0
+        score = cosine_similarity(vector1, vector2)[0][0]
+        prediction = int(score >= self.threshold)
+        return score, prediction
 
 
 # TODO Large language models

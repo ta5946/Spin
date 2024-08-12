@@ -2,19 +2,19 @@ import wandb
 
 
 class Experiment:
-    def __init__(self, evaluator, title=''):
+    def __init__(self, evaluator, name=''):
         self.evaluator = evaluator
-        self.tracking = bool(title)
+        self.tracking = bool(name)
 
         if self.tracking:
             wandb.login()
-            wandb.init(project='outcome_similarity_detection', name=title)
+            wandb.init(project='outcome_similarity_detection', name=name)
 
     def run(self):
         self.evaluator.evaluate()
-        scores = self.evaluator.get_scores()
-        print(scores)
+        metrics = self.evaluator.get_metrics()
+        print(metrics)
 
         if self.tracking:
-            wandb.log(scores)
+            wandb.log(metrics)
             wandb.finish()

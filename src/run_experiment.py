@@ -6,9 +6,8 @@ from models.language_models import *
 
 DATA_FILE = '../data/outcome_similarity/train.tsv'
 
-# TODO Run all
 EXPERIMENT_MODEL = SciBert()
-EXPERIMENT_TITLE = ''
+EXPERIMENT_NAME = 'SciBert()'
 
 
 data_loader = DataLoader(DATA_FILE)
@@ -17,5 +16,5 @@ data = data_loader.load()
 model = EXPERIMENT_MODEL
 model_evaluator = ModelEvaluator(model, data)
 
-experiment = Experiment(model_evaluator, EXPERIMENT_TITLE)
+experiment = Experiment(model_evaluator, EXPERIMENT_NAME)
 experiment.run()

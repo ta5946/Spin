@@ -1,5 +1,6 @@
 import random
 import spacy
+import nltk
 from nltk.stem import WordNetLemmatizer, PorterStemmer
 from difflib import SequenceMatcher
 from gensim import downloader
@@ -13,19 +14,19 @@ class Constant:
         self.constant = constant
 
     def predict(self, out1, out2):
-        return self.constant
+        score = self.constant
+        prediction = self.constant
+        return score, prediction
 
 
 class Random:
     def __init__(self, threshold=0.5):
         self.threshold = threshold
-        pass
 
     def predict(self, out1, out2):
-        if random.random() >= self.threshold:
-            return 1
-        else:
-            return 0
+        score = random.random()
+        prediction = int(score >= self.threshold)
+        return score, prediction
 
 
 # Lexical models
@@ -42,16 +43,15 @@ class Lemmas:
         set1 = self.get_set(out1)
         set2 = self.get_set(out2)
 
-        set_similarity = overlap_similarity(set1, set2)
-        if set_similarity >= self.threshold:
-            return 1
-        else:
-            return 0
+        score = overlap_similarity(set1, set2)
+        prediction = int(score >= self.threshold)
+        return score, prediction
 
 
 class Stems:
     def __init__(self, threshold=0.5):
         self.threshold = threshold
+        nltk.download('wordnet')
         self.model = PorterStemmer()
 
     def get_set(self, sentence):
@@ -62,11 +62,9 @@ class Stems:
         set1 = self.get_set(out1)
         set2 = self.get_set(out2)
 
-        set_similarity = overlap_similarity(set1, set2)
-        if set_similarity >= self.threshold:
-            return 1
-        else:
-            return 0
+        score = overlap_similarity(set1, set2)
+        prediction = int(score >= self.threshold)
+        return score, prediction
 
 
 # String models
@@ -75,46 +73,42 @@ class Levenshtein:
         self.threshold = threshold
 
     def predict(self, out1, out2):
-        string_similarity = 1 - levenshtein_distance(out1, out2)
-        if string_similarity >= self.threshold:
-            return 1
-        else:
-            return 0
+        score = 1 - levenshtein_distance(out1, out2)
+        prediction = int(score >= self.threshold)
+        return score, prediction
 
 
 class Sequence:
     def __init__(self, threshold=0.4):
         self.threshold = threshold
+        nltk.download('wordnet')
         self.model = SequenceMatcher()
 
     def predict(self, out1, out2):
         self.model.set_seqs(out1, out2)
 
-        sequence_similarity = self.model.ratio()
-        if sequence_similarity >= self.threshold:
-            return 1
-        else:
-            return 0
+        score = self.model.ratio()
+        prediction = int(score >= self.threshold)
+        return score, prediction
 
 
 # Vector models
 class Spacy:
     def __init__(self, threshold=0.6):
         self.threshold = threshold
+        spacy.cli.download('en_core_web_md')
         self.model = spacy.load('en_core_web_md')
 
     def predict(self, out1, out2):
         vector1 = self.model(out1).vector.reshape(1, -1)
         vector2 = self.model(out2).vector.reshape(1, -1)
 
-        vector_similarity = cosine_similarity(vector1, vector2)[0][0]
-        if vector_similarity >= self.threshold:
-            return 1
-        else:
-            return 0
+        score = cosine_similarity(vector1, vector2)[0][0]
+        prediction = int(score >= self.threshold)
+        return score, prediction
 
 
-class WordVec:
+class Word2Vec:
     def __init__(self, threshold=0.5):
         self.threshold = threshold
         self.model = downloader.load('word2vec-google-news-300')
@@ -127,11 +121,9 @@ class WordVec:
         vector1 = self.get_vector(out1).reshape(1, -1)
         vector2 = self.get_vector(out2).reshape(1, -1)
 
-        vector_similarity = cosine_similarity(vector1, vector2)[0][0]
-        if vector_similarity >= self.threshold:
-            return 1
-        else:
-            return 0
+        score = cosine_similarity(vector1, vector2)[0][0]
+        prediction = int(score >= self.threshold)
+        return score, prediction
 
 
 # TODO Ontology models
