@@ -3,11 +3,12 @@ from utils.model_evaluator import ModelEvaluator
 from utils.experiment import Experiment
 from models.base_models import *
 from models.language_models import *
+from models.prompts import *
 
 DATA_FILE = '../data/outcome_similarity/train.tsv'
 
-EXPERIMENT_MODEL = SciBert()
-EXPERIMENT_NAME = 'SciBert()'
+EXPERIMENT_MODEL = OlmoInstruct(similarity_template)
+EXPERIMENT_NAME = 'OlmoInstruct(similarity_template)'
 
 
 data_loader = DataLoader(DATA_FILE)
