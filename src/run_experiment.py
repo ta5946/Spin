@@ -1,14 +1,15 @@
-from utils.data_loader import DataLoader
-from utils.model_evaluator import ModelEvaluator
-from utils.experiment import Experiment
-from models.base_models import *
-from models.language_models import *
-from models.prompts import *
+from src.utils.data_loader import DataLoader
+from src.utils.model_evaluator import ModelEvaluator
+from src.utils.experiment import Experiment
+from src.models.base_models import *
+from src.models.language_models import *
+from src.models.prompts import *
 
 DATA_FILE = '../data/outcome_similarity/train.tsv'
 
-EXPERIMENT_MODEL = OlmoInstruct(similarity_template)
-EXPERIMENT_NAME = 'OlmoInstruct(similarity_template)'
+# TODO Evaluate ZeroShot(sentence_template), ZeroShot(outcome_template), ZeroShotProb(sentence_template), ZeroShotProb(outcome_template)
+EXPERIMENT_MODEL = SciBert()
+EXPERIMENT_NAME = ''
 
 
 data_loader = DataLoader(DATA_FILE)

@@ -1,7 +1,7 @@
 import Levenshtein
 
 
-def overlap_similarity(set1, set2):
+def overlap_coefficient(set1, set2):
     intersection = set1.intersection(set2)
     return len(intersection) / min(len(set1), len(set2))
 

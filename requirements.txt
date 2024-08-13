@@ -1,13 +1,15 @@
-# Generated with pipreqs
+# pipreqs . --force
 gensim==4.3.3
+langchain_core==0.2.30
 matplotlib==3.8.4
 nltk==3.8.1
-numpy==2.0.1
 pandas==2.2.2
-python-dotenv==1.0.1
 python_Levenshtein==0.25.1
 scikit_learn==1.4.2
+setuptools==68.2.2
 spacy==3.7.5
 torch==2.2.2
 tqdm==4.65.0
-transformers==4.40.2
+transformers==4.44.0
+wandb==0.17.6
+weave==0.50.13
