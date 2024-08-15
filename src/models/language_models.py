@@ -2,15 +2,17 @@ import torch
 import weave
 from transformers import AutoTokenizer, AutoModelForCausalLM, pipeline
 from torch.nn.functional import softmax
+from src.models.prompts import *
 
 
+# TODO Generator class
 class TextGenerator:
     def __init__(self):
         self.pipeline = pipeline('text-generation', model='allenai/OLMo-7B-Instruct-hf', device_map='cuda', torch_dtype=torch.bfloat16)
         weave.init('outcome_similarity_detection')
 
     # @weave.op
-    def generate_text(self, user_text, n_tokens=10):
+    def generate_text(self, user_text, n_tokens):
         input_chat = [
             {'role': 'user', 'content': user_text}
         ]
@@ -68,3 +70,16 @@ class ZeroShotProb:
 
         prediction = int(score >= self.threshold)
         return score, prediction
+
+
+class ZeroShotCot:
+    def __init__(self, template):
+        self.model = TextGenerator()
+        self.template = template
+
+    def predict(self, out1, out2):
+        user_text = self.template.format(sentence1=out1, sentence2=out2)
+        generated_text = self.model.generate_text(user_text, n_tokens=250)
+
+        prediction = int('yes' in generated_text.lower())
+        return prediction, prediction

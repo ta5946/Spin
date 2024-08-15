@@ -7,9 +7,9 @@ from src.models.prompts import *
 
 DATA_FILE = '../data/outcome_similarity/train.tsv'
 
-# TODO Evaluate ZeroShot(sentence_template), ZeroShot(outcome_template), ZeroShotProb(sentence_template), ZeroShotProb(outcome_template)
-EXPERIMENT_MODEL = SciBert()
-EXPERIMENT_NAME = ''
+# TODO Evaluate ZeroShot(definition_template) ZeroShotProb(definition_template)
+EXPERIMENT_MODEL = ZeroShotCot(chain_template)
+EXPERIMENT_NAME = 'ZeroShotCot(chain_template)'
 
 
 data_loader = DataLoader(DATA_FILE)
