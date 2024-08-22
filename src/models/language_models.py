@@ -1,35 +1,33 @@
 import torch
 import weave
-from transformers import AutoTokenizer, AutoModelForCausalLM, pipeline
+from transformers import AutoTokenizer, AutoModelForCausalLM
 from torch.nn.functional import softmax
-from src.models.prompts import *
+
+HF_MODEL = 'allenai/OLMo-7B-Instruct-hf'
 
 
-# TODO Generator class
-class TextGenerator:
+class Generator:
     def __init__(self):
-        self.pipeline = pipeline('text-generation', model='allenai/OLMo-7B-Instruct-hf', device_map='cuda', torch_dtype=torch.bfloat16)
-        weave.init('outcome_similarity_detection')
-
-    # @weave.op
-    def generate_text(self, user_text, n_tokens):
-        input_chat = [
-            {'role': 'user', 'content': user_text}
-        ]
-        output_chat = self.pipeline(input_chat, max_new_tokens=n_tokens)[0]['generated_text']
-        generated_text = output_chat[1]['content']
-        return generated_text
-
-
-class ProbabilityGenerator:
-    def __init__(self):
-        self.tokenizer = AutoTokenizer.from_pretrained('allenai/OLMo-7B-Instruct-hf')
-        self.model = AutoModelForCausalLM.from_pretrained('allenai/OLMo-7B-Instruct-hf', device_map='cuda', torch_dtype=torch.bfloat16)
+        self.tokenizer = AutoTokenizer.from_pretrained(HF_MODEL)
+        self.model = AutoModelForCausalLM.from_pretrained(HF_MODEL, device_map='cuda', torch_dtype=torch.bfloat16)
         self.no_token = self.tokenizer.encode('No', add_special_tokens=False)[0]
         self.yes_token = self.tokenizer.encode('Yes', add_special_tokens=False)[0]
         weave.init('outcome_similarity_detection')
 
-    # @weave.op
+    @weave.op
+    def generate_text(self, user_text, n_tokens=1000):
+        input_chat = [
+            {'role': 'user', 'content': user_text}
+        ]
+        inputs = self.tokenizer.apply_chat_template(input_chat, add_generation_prompt=True, return_tensors='pt').to('cuda')
+        n_inputs = inputs.shape[1]
+
+        outputs = self.model.generate(inputs, max_new_tokens=n_tokens)
+        outputs = outputs[0, n_inputs:]
+        generated_text = self.tokenizer.decode(outputs, skip_special_tokens=True)
+        return generated_text
+
+    @weave.op
     def generate_probability(self, user_text):
         input_chat = [
             {'role': 'user', 'content': user_text}
@@ -45,41 +43,28 @@ class ProbabilityGenerator:
         return yes_probability
 
 
-class ZeroShot:
+class Text:
     def __init__(self, template):
-        self.model = TextGenerator()
+        self.model = Generator()
         self.template = template
 
     def predict(self, out1, out2):
-        user_text = self.template.format(sentence1=out1, sentence2=out2)
-        generated_text = self.model.generate_text(user_text, n_tokens=10)
+        user_text = self.template.format(out1=out1, out2=out2)
+        generated_text = self.model.generate_text(user_text)
 
         prediction = int('yes' in generated_text.lower())
         return prediction, prediction
 
 
-class ZeroShotProb:
+class Probability:
     def __init__(self, template, threshold=0.8):
-        self.model = ProbabilityGenerator()
+        self.model = Generator()
         self.template = template
         self.threshold = threshold
 
     def predict(self, out1, out2):
-        user_text = self.template.format(sentence1=out1, sentence2=out2)
+        user_text = self.template.format(out1=out1, out2=out2)
         score = self.model.generate_probability(user_text)
 
         prediction = int(score >= self.threshold)
         return score, prediction
-
-
-class ZeroShotCot:
-    def __init__(self, template):
-        self.model = TextGenerator()
-        self.template = template
-
-    def predict(self, out1, out2):
-        user_text = self.template.format(sentence1=out1, sentence2=out2)
-        generated_text = self.model.generate_text(user_text, n_tokens=250)
-
-        prediction = int('yes' in generated_text.lower())
-        return prediction, prediction

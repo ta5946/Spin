@@ -18,8 +18,9 @@ class ModelEvaluator:
         for index, row in tqdm(self.data.iterrows(), total=self.n_rows, desc='Generating predictions'):
             out1 = row['out1']
             out2 = row['out2']
-            self.scores.append(self.model.predict(out1, out2)[0])
-            self.predictions.append(self.model.predict(out1, out2)[1])
+            score, prediction = self.model.predict(out1, out2)
+            self.scores.append(score)
+            self.predictions.append(prediction)
 
         end = time()
         self.evaluation_time = end - start
