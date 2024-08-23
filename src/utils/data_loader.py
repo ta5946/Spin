@@ -10,5 +10,5 @@ class DataLoader:
 
     def load_dict(self):
         data = self.load_df()
-        data['label'] = data['label'].apply(lambda label: 'Yes' if label == 1 else 'No')
+        data['label'] = data['label'].apply(lambda label: 'Yes, the primary outcome is correctly reported.' if label == 1 else 'No, the primary outcome is not correctly reported.')
         return data.to_dict(orient='records')

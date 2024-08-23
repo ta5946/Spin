@@ -14,7 +14,7 @@ sentence_template = PromptTemplate.from_template("""Are the following sentences 
 
 First sentence: {out1}
 
-Second sentence: {out1}
+Second sentence: {out2}
 
 Answer:""")
 
@@ -23,7 +23,7 @@ outcome_template = PromptTemplate.from_template("""Is the following primary outc
                                                 
 Primary outcome: {out1}
 
-Reported outcome: {out1}
+Reported outcome: {out2}
 
 Answer:""")
 
@@ -34,7 +34,7 @@ Is the following primary outcome correctly reported? Answer with either Yes or N
 
 Primary outcome: {out1}
 
-Reported outcome: {out1}
+Reported outcome: {out2}
 
 Answer:""")
 
@@ -46,7 +46,7 @@ Is the following primary outcome correctly reported? Lets think step by step.
 
 Primary outcome: {out1}
 
-Reported outcome: {out1}
+Reported outcome: {out2}
 
 Steps:""")
 
