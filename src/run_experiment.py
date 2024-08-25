@@ -7,9 +7,9 @@ from src.models.prompt_templates import *
 
 DATA_FILE = '../data/outcome_similarity/train.tsv'
 
-# TODO
-EXPERIMENT_MODEL = Probability(random_template)
-EXPERIMENT_NAME = 'Probability(random_template)'
+# TODO Evaluate models
+EXPERIMENT_MODEL = OlmoProbability(random_template)
+EXPERIMENT_NAME = ''
 
 
 data_loader = DataLoader(DATA_FILE)

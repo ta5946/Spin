@@ -3,13 +3,11 @@ import weave
 from transformers import AutoTokenizer, AutoModelForCausalLM
 from torch.nn.functional import softmax
 
-HF_MODEL = 'allenai/OLMo-7B-Instruct-hf'
 
-
-class Generator:
+class Olmo:
     def __init__(self):
-        self.tokenizer = AutoTokenizer.from_pretrained(HF_MODEL)
-        self.model = AutoModelForCausalLM.from_pretrained(HF_MODEL, device_map='cuda', torch_dtype=torch.bfloat16)
+        self.tokenizer = AutoTokenizer.from_pretrained('allenai/OLMo-7B-Instruct-hf')
+        self.model = AutoModelForCausalLM.from_pretrained('allenai/OLMo-7B-Instruct-hf', device_map='cuda', torch_dtype=torch.bfloat16)
         self.no_token = self.tokenizer.encode('No', add_special_tokens=False)[0]
         self.yes_token = self.tokenizer.encode('Yes', add_special_tokens=False)[0]
         weave.init('outcome_similarity_detection')
@@ -43,9 +41,9 @@ class Generator:
         return yes_probability
 
 
-class Text:
+class OlmoText:
     def __init__(self, template):
-        self.model = Generator()
+        self.model = Olmo()
         self.template = template
 
     def predict(self, out1, out2):
@@ -56,9 +54,9 @@ class Text:
         return prediction, prediction
 
 
-class Probability:
+class OlmoProbability:
     def __init__(self, template, threshold=0.8):
-        self.model = Generator()
+        self.model = Olmo()
         self.template = template
         self.threshold = threshold
 
