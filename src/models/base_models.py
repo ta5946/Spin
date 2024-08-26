@@ -6,6 +6,7 @@ from nltk.stem import WordNetLemmatizer, PorterStemmer
 from difflib import SequenceMatcher
 from gensim import downloader
 from transformers import AutoTokenizer, AutoModel
+from sentence_transformers import SentenceTransformer
 from sklearn.metrics.pairwise import cosine_similarity
 from src.models.distances import *
 
@@ -149,6 +150,23 @@ class SciBert:
     def predict(self, out1, out2):
         vector1 = self.get_vector(out1)
         vector2 = self.get_vector(out2)
+
+        score = cosine_similarity(vector1, vector2)[0][0]
+        prediction = int(score >= self.threshold)
+        return score, prediction
+
+
+class MiniLm:
+    def __init__(self, threshold=0.5):
+        self.model = SentenceTransformer('sentence-transformers/all-MiniLM-L6-v2', device='cuda')
+        self.threshold = threshold
+
+    def get_vector(self, sentence):
+        return self.model.encode(sentence)
+
+    def predict(self, out1, out2):
+        vector1 = self.get_vector(out1).reshape(1, -1)
+        vector2 = self.get_vector(out2).reshape(1, -1)
 
         score = cosine_similarity(vector1, vector2)[0][0]
         prediction = int(score >= self.threshold)
