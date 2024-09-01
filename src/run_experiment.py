@@ -8,8 +8,8 @@ from src.models.prompt_templates import *
 DATA_FILE = '../data/outcome_similarity/train.tsv'
 
 # TODO Evaluate models
-EXPERIMENT_MODEL = OlmoProbability(random_template)
-EXPERIMENT_NAME = ''
+EXPERIMENT_MODEL = OlmoText(step_template)
+EXPERIMENT_NAME = 'OlmoText(step_template)'
 
 
 data_loader = DataLoader(DATA_FILE)

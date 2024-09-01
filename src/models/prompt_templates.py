@@ -11,7 +11,8 @@ examples = data_loader.load_dict()
 
 
 # Zero shot
-sentence_template = PromptTemplate.from_template("""Are the following sentences semantically similar? Answer with either Yes or No.
+# TODO Evaluated: Are the following sentences semantically similar? Answer with either Yes or No.
+sentence_template = PromptTemplate.from_template("""Are the sentences semantically similar? Answer with either Yes or No.
 
 First sentence: {out1}
 
@@ -21,6 +22,20 @@ Answer:""")
 
 
 outcome_template = PromptTemplate.from_template("""Is the following primary outcome correctly reported? Answer with either Yes or No.
+
+Primary outcome: {out1}
+
+Reported outcome: {out2}
+
+Answer:""")
+
+
+# TODO Evaluated: Is the following primary outcome correctly reported? Answer with either Yes or No.
+role_template = PromptTemplate.from_template("""You are a clinical trial report reviewer.
+
+---
+
+Does the reported outcome match the defined primary outcome? Answer with either Yes or No.
                                                 
 Primary outcome: {out1}
 
@@ -29,9 +44,17 @@ Reported outcome: {out2}
 Answer:""")
 
 
-outcome_definition_template = PromptTemplate.from_template("""Outcome switching is unjustified change of the predefined trial outcomes, leading to reporting only the favourable outcomes that support the hypothesis of the researchers.
+# TODO Evaluated: One type of incorrect reporting is changing the predefined primary outcome of a clinical trial. That way the researchers can report only the outcomes that support their hypothesis.
+# TODO Evaluated: Is the following primary outcome correctly reported? Answer with either Yes or No.
+wikipedia_definition_template = PromptTemplate.from_template("""You are a clinical trial report reviewer.
 
-Is the following primary outcome correctly reported? Answer with either Yes or No.
+---
+
+Outcome switching is the practice of changing the primary or secondary outcomes of a clinical trial after its initiation. An outcome is the goal of the clinical trial, such as survival after five years for cancer treatment. Outcome switching can lead to bias and undermine the reliability of the trial, for instance when outcomes are switched after researchers already have access to trial data. That way, researchers can cherry pick an outcome which is statistically significant.
+
+---
+
+Does the reported outcome match the defined primary outcome? Answer with either Yes or No.
 
 Primary outcome: {out1}
 
@@ -40,7 +63,28 @@ Reported outcome: {out2}
 Answer:""")
 
 
-outcome_step_template = PromptTemplate.from_template("""Is the following primary outcome correctly reported? Lets think step by step.
+koroleva_definition_template = PromptTemplate.from_template("""You are a clinical trial report reviewer.
+
+---
+
+Outcome switching is defined as unjustified change of the predefined trial outcomes. This leads to researchers reporting only the outcomes that support their hypothesis.
+
+---
+
+Does the reported outcome match the defined primary outcome? Answer with either Yes or No.
+
+Primary outcome: {out1}
+
+Reported outcome: {out2}
+
+Answer:""")
+
+
+step_template = PromptTemplate.from_template("""You are a clinical trial report reviewer.
+
+---
+
+Is the following primary outcome correctly reported? Lets think step by step.
 
 Primary outcome: {out1}
 
@@ -50,10 +94,11 @@ Steps:""")
 
 
 # Few shot
-prefix = """Outcome switching is unjustified change of the predefined trial outcomes, leading to reporting only the favourable outcomes that support the hypothesis of the researchers."""
+prefix = """You are a clinical trial report reviewer."""
 
 
-example_template = PromptTemplate.from_template("""Is the following primary outcome correctly reported? Answer with either Yes or No.
+# TODO Evaluated: Is the following primary outcome correctly reported? Answer with either Yes or No.
+example_template = PromptTemplate.from_template("""Does the reported outcome match the defined primary outcome? Answer with either Yes or No.
 
 Primary outcome: {out1}
 
@@ -69,7 +114,8 @@ example_separator = """
 """
 
 
-suffix = """Is the following primary outcome correctly reported? Answer with either Yes or No.
+# TODO Evaluated: Is the following primary outcome correctly reported? Answer with either Yes or No.
+suffix = """Does the reported outcome match the defined primary outcome? Answer with either Yes or No.
 
 Primary outcome: {out1}
 
