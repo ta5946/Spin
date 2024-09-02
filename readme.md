@@ -53,7 +53,7 @@ You are a clinical trial report reviewer. Your task is to detect incorrectly rep
 
 ---
 
-Is the following primary outcome correctly reported? Lets think step by step.
+Does the reported outcome match the defined primary outcome? Lets think step by step.
 
 Primary outcome: {out1}
 
