@@ -156,7 +156,7 @@ class SciBert:
         return score, prediction
 
 
-class MiniLm:
+class SentenceTransformers:
     def __init__(self, threshold=0.5):
         self.model = SentenceTransformer('sentence-transformers/all-MiniLM-L6-v2', device='cuda')
         self.threshold = threshold

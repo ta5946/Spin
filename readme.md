@@ -1,5 +1,43 @@
 # Detecting spin in clinical trials with large language models
 
+
+## Language models
+
+### OLMo-7B-Instruct
+- Description: **Open training** and weights general purpose model.
+- Size: 6.9B parameters
+- Release date: February 2024
+- Link: [https://huggingface.co/allenai/OLMo-7B-Instruct-hf](https://huggingface.co/allenai/OLMo-7B-Instruct-hf)
+
+### Mistral-7B-Instruct-v0.2
+- Description: Open weights general purpose model.
+- Size: 7.2B parameters
+- Release date: December 2023
+- Link: [https://huggingface.co/mistralai/Mistral-7B-Instruct-v0.2](https://huggingface.co/mistralai/Mistral-7B-Instruct-v0.2)
+
+### BioMistral-7B-DARE
+- Description: Open weights medical **domain adapted** model.
+- Size: 7.2B parameters
+- Release date: February 2024
+- Link: [https://huggingface.co/BioMistral/BioMistral-7B-DARE](https://huggingface.co/BioMistral/BioMistral-7B-DARE)
+
+### Meta-Llama-3-8B-Instruct
+- Description: **State of the art** open weights model.
+- Size: 8B parameters
+- Release date: April 2024
+- Link: [https://huggingface.co/meta-llama/Meta-Llama-3-8B-Instruct](https://huggingface.co/meta-llama/Meta-Llama-3-8B-Instruct)
+
+
+## Dataset
+
+- Labeled pairs of primary and reported outcomes of PubMed clinical trial abstracts.
+- 100 pairs for few shot examples and threshold tuning.
+- 2600 pairs for prompt tuning and model evaluation.
+- Biased towards **negative examples**, where the reported outcome does not match the primary outcome.
+
+![docs/outcome_similarity/distribution.png](docs/outcome_similarity/distribution.png)
+
+
 ## Prompt templates
 
 ### Zero shot
@@ -47,22 +85,6 @@ Answer:
 <|assistant|>
 ```
 
-- Chain of thought template:
-```text
-You are a clinical trial report reviewer. Your task is to detect incorrectly reported outcomes.
-
----
-
-Does the reported outcome match the defined primary outcome? Lets think step by step.
-
-Primary outcome: {out1}
-
-Reported outcome: {out2}
-
-Steps:
-<|assistant|>
-```
-
 - Wikipedia definition template:
 ```text
 <|endoftext|><|user|>
@@ -91,7 +113,7 @@ You are a clinical trial report reviewer. Your task is to detect incorrectly rep
 
 ---
 
-Outcome switching is defined as unjustified change of the predefined trial outcomes. This leads to researchers reporting only the outcomes that support their hypothesis.
+Outcome switching is an unjustified change of the predefined trial outcomes, leading to reporting only the favourable outcomes that support the hypothesis of the researchers. Outcome switching is one of the most common types of spin. It can consist in omitting the primary outcome in the results and conclusions of the abstract, or in the focus on significant secondary outcomes.
 
 ---
 
@@ -105,9 +127,25 @@ Answer:
 <|assistant|>
 ```
 
+- Chain of thought template:
+```text
+You are a clinical trial report reviewer. Your task is to detect incorrectly reported outcomes.
+
+---
+
+Does the reported outcome match the defined primary outcome? Lets think step by step.
+
+Primary outcome: {out1}
+
+Reported outcome: {out2}
+
+Steps:
+<|assistant|>
+```
+
 ### One shot
 
-- Random template:
+- Random example template:
 ```text
 You are a clinical trial report reviewer. Your task is to detect incorrectly reported outcomes.
 
@@ -132,6 +170,27 @@ Reported outcome: {out2}
 Answer:
 <|assistant|>
 ```
+
+
+## Results
+
+### Baseline models
+
+| Model                                | Auc score |
+|--------------------------------------|-----------|
+| Constant classifier                  | 0.500     |
+| Random classifier                    | 0.417     |
+| Lemmas classifier                    | 0.831     |
+| **Stems classifier**                 | **0.871** |
+| Levenshtein classifier               | 0.801     |
+| Sequence classifier                  | 0.850     |
+| Spacy classifier                     | 0.711     |
+| Word2Vec classifier                  | 0.814     |
+| SciBERT classifier                   | 0.782     |
+| **Sentence transformers classifier** | **0.884** |
+
+### Large language models
+
 
 ## References
 

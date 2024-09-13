@@ -4,14 +4,13 @@ from transformers import AutoTokenizer, AutoModelForCausalLM
 from torch.nn.functional import softmax
 
 
-# TODO Create language model class
 class Olmo:
     def __init__(self):
         self.tokenizer = AutoTokenizer.from_pretrained('allenai/OLMo-7B-Instruct-hf')
         self.model = AutoModelForCausalLM.from_pretrained('allenai/OLMo-7B-Instruct-hf', device_map='cuda', torch_dtype=torch.bfloat16)
         self.no_token = self.tokenizer.encode('No', add_special_tokens=False)[0]
         self.yes_token = self.tokenizer.encode('Yes', add_special_tokens=False)[0]
-        weave.init('outcome_similarity_detection')
+        weave.init('test')
 
     @weave.op
     def generate_text(self, user_text, n_tokens=1000):
@@ -71,8 +70,8 @@ class OlmoProbability:
 
 class Mistral:
     def __init__(self):
-        self.tokenizer = AutoTokenizer.from_pretrained('mistralai/Mistral-7B-Instruct-v0.1')
-        self.model = AutoModelForCausalLM.from_pretrained('mistralai/Mistral-7B-Instruct-v0.1', device_map='cuda', torch_dtype=torch.bfloat16)
+        self.tokenizer = AutoTokenizer.from_pretrained('mistralai/Mistral-7B-Instruct-v0.2')
+        self.model = AutoModelForCausalLM.from_pretrained('mistralai/Mistral-7B-Instruct-v0.2', device_map='cuda', torch_dtype=torch.bfloat16)
         self.no_token = self.tokenizer.encode('No', add_special_tokens=False)[0]
         self.yes_token = self.tokenizer.encode('Yes', add_special_tokens=False)[0]
         weave.init('test')
@@ -133,7 +132,7 @@ class MistralProbability:
         return score, prediction
 
 
-class BioMistral:
+class Bio:
     def __init__(self):
         self.tokenizer = AutoTokenizer.from_pretrained('BioMistral/BioMistral-7B-DARE')
         self.model = AutoModelForCausalLM.from_pretrained('BioMistral/BioMistral-7B-DARE', device_map='cuda', torch_dtype=torch.bfloat16)
@@ -170,9 +169,9 @@ class BioMistral:
         return yes_probability
 
 
-class BioMistralText:
+class BioText:
     def __init__(self, template):
-        self.model = BioMistral()
+        self.model = Bio()
         self.template = template
 
     def predict(self, out1, out2):
@@ -183,9 +182,9 @@ class BioMistralText:
         return prediction, prediction
 
 
-class BioMistralProbability:
+class BioProbability:
     def __init__(self, template, threshold=0.5):
-        self.model = BioMistral()
+        self.model = Bio()
         self.template = template
         self.threshold = threshold
 
@@ -199,11 +198,10 @@ class BioMistralProbability:
 
 class Llama:
     def __init__(self):
-        self.tokenizer = AutoTokenizer.from_pretrained('meta-llama/Llama-2-7b-chat-hf')
-        self.model = AutoModelForCausalLM.from_pretrained('meta-llama/Llama-2-7b-chat-hf', device_map='cuda', torch_dtype=torch.bfloat16)
+        self.tokenizer = AutoTokenizer.from_pretrained('meta-llama/Meta-Llama-3-8B-Instruct')
+        self.model = AutoModelForCausalLM.from_pretrained('meta-llama/Meta-Llama-3-8B-Instruct', device_map='cuda', torch_dtype=torch.bfloat16)
         self.no_token = self.tokenizer.encode('No', add_special_tokens=False)[0]
         self.yes_token = self.tokenizer.encode('Yes', add_special_tokens=False)[0]
-        self.boundary_tensor = torch.tensor([[29871]], device='cuda')
         weave.init('test')
 
     @weave.op
@@ -212,7 +210,6 @@ class Llama:
             {'role': 'user', 'content': user_text},
         ]
         inputs = self.tokenizer.apply_chat_template(input_chat, add_generation_prompt=True, return_tensors='pt').to('cuda')
-        inputs = torch.cat([inputs, self.boundary_tensor], dim=1)
         n_inputs = inputs.shape[1]
 
         outputs = self.model.generate(inputs, max_new_tokens=n_tokens)
@@ -226,7 +223,6 @@ class Llama:
             {'role': 'user', 'content': user_text},
         ]
         inputs = self.tokenizer.apply_chat_template(input_chat, add_generation_prompt=True, return_tensors='pt').to('cuda')
-        inputs = torch.cat([inputs, self.boundary_tensor], dim=1)
         with torch.no_grad():
             outputs = self.model(inputs)
         generated_scores = outputs.logits[0, -1, :]

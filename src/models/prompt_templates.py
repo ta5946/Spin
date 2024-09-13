@@ -11,7 +11,6 @@ examples = data_loader.load_dict()
 
 
 # Zero shot
-# TODO Evaluated: Are the following sentences semantically similar? Answer with either Yes or No.
 sentence_template = PromptTemplate.from_template("""Are the sentences semantically similar? Answer with either Yes or No.
 
 First sentence: {out1}
@@ -21,8 +20,8 @@ Second sentence: {out2}
 Answer:""")
 
 
-outcome_template = PromptTemplate.from_template("""Is the following primary outcome correctly reported? Answer with either Yes or No.
-
+outcome_template = PromptTemplate.from_template("""Does the reported outcome match the defined primary outcome? Answer with either Yes or No.
+                                                
 Primary outcome: {out1}
 
 Reported outcome: {out2}
@@ -30,8 +29,7 @@ Reported outcome: {out2}
 Answer:""")
 
 
-# TODO Evaluated: Is the following primary outcome correctly reported? Answer with either Yes or No.
-role_template = PromptTemplate.from_template("""You are a clinical trial report reviewer.
+role_template = PromptTemplate.from_template("""You are a clinical trial report reviewer. Your task is to detect incorrectly reported outcomes.
 
 ---
 
@@ -44,9 +42,7 @@ Reported outcome: {out2}
 Answer:""")
 
 
-# TODO Evaluated: One type of incorrect reporting is changing the predefined primary outcome of a clinical trial. That way the researchers can report only the outcomes that support their hypothesis.
-# TODO Evaluated: Is the following primary outcome correctly reported? Answer with either Yes or No.
-wikipedia_definition_template = PromptTemplate.from_template("""You are a clinical trial report reviewer.
+wikipedia_definition_template = PromptTemplate.from_template("""You are a clinical trial report reviewer. Your task is to detect incorrectly reported outcomes.
 
 ---
 
@@ -63,11 +59,11 @@ Reported outcome: {out2}
 Answer:""")
 
 
-koroleva_definition_template = PromptTemplate.from_template("""You are a clinical trial report reviewer.
+article_definition_template = PromptTemplate.from_template("""You are a clinical trial report reviewer. Your task is to detect incorrectly reported outcomes.
 
 ---
 
-Outcome switching is defined as unjustified change of the predefined trial outcomes. This leads to researchers reporting only the outcomes that support their hypothesis.
+Outcome switching is an unjustified change of the predefined trial outcomes, leading to reporting only the favourable outcomes that support the hypothesis of the researchers. Outcome switching is one of the most common types of spin. It can consist in omitting the primary outcome in the results and conclusions of the abstract, or in the focus on significant secondary outcomes.
 
 ---
 
@@ -80,11 +76,11 @@ Reported outcome: {out2}
 Answer:""")
 
 
-step_template = PromptTemplate.from_template("""You are a clinical trial report reviewer.
+chain_of_thought_template = PromptTemplate.from_template("""You are a clinical trial report reviewer. Your task is to detect incorrectly reported outcomes.
 
 ---
 
-Is the following primary outcome correctly reported? Lets think step by step.
+Does the reported outcome match the defined primary outcome? Lets think step by step.
 
 Primary outcome: {out1}
 
@@ -94,10 +90,9 @@ Steps:""")
 
 
 # Few shot
-prefix = """You are a clinical trial report reviewer."""
+prefix = """You are a clinical trial report reviewer. Your task is to detect incorrectly reported outcomes."""
 
 
-# TODO Evaluated: Is the following primary outcome correctly reported? Answer with either Yes or No.
 example_template = PromptTemplate.from_template("""Does the reported outcome match the defined primary outcome? Answer with either Yes or No.
 
 Primary outcome: {out1}
@@ -114,7 +109,6 @@ example_separator = """
 """
 
 
-# TODO Evaluated: Is the following primary outcome correctly reported? Answer with either Yes or No.
 suffix = """Does the reported outcome match the defined primary outcome? Answer with either Yes or No.
 
 Primary outcome: {out1}
@@ -124,7 +118,7 @@ Reported outcome: {out2}
 Answer:"""
 
 
-random_template = FewShotPromptTemplate(
+random_example_template = FewShotPromptTemplate(
     example_selector=RandomExampleSelector(examples, 1),
     prefix=prefix,
     example_prompt=example_template,
@@ -134,7 +128,7 @@ random_template = FewShotPromptTemplate(
 )
 
 
-negative_template = FewShotPromptTemplate(
+negative_example_template = FewShotPromptTemplate(
     example_selector=LabelExampleSelector(examples, [0]),
     prefix=prefix,
     example_prompt=example_template,
@@ -144,28 +138,8 @@ negative_template = FewShotPromptTemplate(
 )
 
 
-positive_template = FewShotPromptTemplate(
+positive_example_template = FewShotPromptTemplate(
     example_selector=LabelExampleSelector(examples, [1]),
-    prefix=prefix,
-    example_prompt=example_template,
-    example_separator=example_separator,
-    suffix=suffix,
-    input_variables=['out1', 'out2']
-)
-
-
-negative_positive_template = FewShotPromptTemplate(
-    example_selector=LabelExampleSelector(examples, [0, 1]),
-    prefix=prefix,
-    example_prompt=example_template,
-    example_separator=example_separator,
-    suffix=suffix,
-    input_variables=['out1', 'out2']
-)
-
-
-positive_negative_template = FewShotPromptTemplate(
-    example_selector=LabelExampleSelector(examples, [1, 0]),
     prefix=prefix,
     example_prompt=example_template,
     example_separator=example_separator,

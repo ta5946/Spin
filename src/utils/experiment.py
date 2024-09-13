@@ -8,7 +8,7 @@ class Experiment:
 
         if self.tracking:
             wandb.login()
-            wandb.init(project='outcome_similarity_detection', name=name)
+            wandb.init(project='test', name=name)
 
     def run(self):
         self.evaluator.evaluate()

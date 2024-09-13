@@ -1,7 +1,7 @@
 import pandas as pd
 import matplotlib.pyplot as plt
 
-DATA_FILE = '../data/outcome_similarity/train.tsv'
+DATA_FILE = '../../data/outcome_similarity/val.tsv'
 
 
 data = pd.read_csv(DATA_FILE, sep='\t')
