@@ -85,14 +85,14 @@ Answer:
 <|assistant|>
 ```
 
-- Wikipedia definition template:
+- Article definition template:
 ```text
 <|endoftext|><|user|>
 You are a clinical trial report reviewer. Your task is to detect incorrectly reported outcomes.
 
 ---
 
-Outcome switching is the practice of changing the primary or secondary outcomes of a clinical trial after its initiation. An outcome is the goal of the clinical trial, such as survival after five years for cancer treatment. Outcome switching can lead to bias and undermine the reliability of the trial, for instance when outcomes are switched after researchers already have access to trial data. That way, researchers can cherry pick an outcome which is statistically significant.
+Outcome switching is an unjustified change of the predefined trial outcomes, leading to reporting only the favourable outcomes that support the hypothesis of the researchers. Outcome switching is one of the most common types of spin. It can consist in omitting the primary outcome in the results and conclusions of the abstract, or in the focus on significant secondary outcomes.
 
 ---
 
@@ -106,14 +106,14 @@ Answer:
 <|assistant|>
 ```
 
-- Article definition template:
+- Wikipedia definition template:
 ```text
 <|endoftext|><|user|>
 You are a clinical trial report reviewer. Your task is to detect incorrectly reported outcomes.
 
 ---
 
-Outcome switching is an unjustified change of the predefined trial outcomes, leading to reporting only the favourable outcomes that support the hypothesis of the researchers. Outcome switching is one of the most common types of spin. It can consist in omitting the primary outcome in the results and conclusions of the abstract, or in the focus on significant secondary outcomes.
+Outcome switching is the practice of changing the primary or secondary outcomes of a clinical trial after its initiation. An outcome is the goal of the clinical trial, such as survival after five years for cancer treatment. Outcome switching can lead to bias and undermine the reliability of the trial, for instance when outcomes are switched after researchers already have access to trial data. That way, researchers can cherry pick an outcome which is statistically significant.
 
 ---
 
@@ -145,7 +145,7 @@ Steps:
 
 ### One shot
 
-- Random example template:
+- Random and similar example template:
 ```text
 You are a clinical trial report reviewer. Your task is to detect incorrectly reported outcomes.
 
@@ -190,6 +190,23 @@ Answer:
 | **Sentence transformers classifier** | **0.884** |
 
 ### Large language models
+
+| Auc score                     | Olmo  | Mistral | BioMistral | Llama     |
+|-------------------------------|-------|---------|------------|-----------|
+| Sentence template             | 0.897 | 0.878   | **0.893**  | 0.875     |
+| Outcome template              | 0.922 | 0.908   | **0.931**  | 0.939     |
+| Role template                 | 0.912 | 0.906   | 0.919      | 0.920     |
+| Article definition template   | 0.897 | 0.922   | 0.907      | **0.931** |
+| Wikipedia definition template | 0.884 | 0.908   | 0.908      | **0.934** |
+| Random example template       | 0.907 | 0.892   | 0.881      | 0.860     |
+| Similar example template      | 0.880 | 0.874   | 0.903      | 0.823     |
+
+> **Note**: Model role is a part of the user prompt, except in the case of Llama that uses a dedicated system prompt.
+
+Key takeaways:
+- Domain specific BioMistral is most effective with minimal prompt engineering.
+- State of the art Llama 3 excels at understanding complex prompts.
+- Olmo and Mistral are relatively stable in their predictions.
 
 
 ## References

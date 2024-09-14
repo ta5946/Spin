@@ -1,5 +1,8 @@
 from langchain_core.prompts import PromptTemplate
 from langchain_core.prompts.few_shot import FewShotPromptTemplate
+from langchain_core.example_selectors import SemanticSimilarityExampleSelector
+from langchain_huggingface.embeddings import HuggingFaceEmbeddings
+from langchain_chroma import Chroma
 from src.utils.data_loader import DataLoader
 from src.models.example_selectors import *
 
@@ -8,6 +11,9 @@ DATA_FILE = '../data/outcome_similarity/train.tsv'
 
 data_loader = DataLoader(DATA_FILE)
 examples = data_loader.load_dict()
+str_examples = data_loader.load_dict(str_only=True)
+
+sentence_transformers_embeddings = HuggingFaceEmbeddings(model_name='sentence-transformers/all-MiniLM-L6-v2')
 
 
 # Zero shot
@@ -42,11 +48,11 @@ Reported outcome: {out2}
 Answer:""")
 
 
-wikipedia_definition_template = PromptTemplate.from_template("""You are a clinical trial report reviewer. Your task is to detect incorrectly reported outcomes.
+article_definition_template = PromptTemplate.from_template("""You are a clinical trial report reviewer. Your task is to detect incorrectly reported outcomes.
 
 ---
 
-Outcome switching is the practice of changing the primary or secondary outcomes of a clinical trial after its initiation. An outcome is the goal of the clinical trial, such as survival after five years for cancer treatment. Outcome switching can lead to bias and undermine the reliability of the trial, for instance when outcomes are switched after researchers already have access to trial data. That way, researchers can cherry pick an outcome which is statistically significant.
+Outcome switching is an unjustified change of the predefined trial outcomes, leading to reporting only the favourable outcomes that support the hypothesis of the researchers. Outcome switching is one of the most common types of spin. It can consist in omitting the primary outcome in the results and conclusions of the abstract, or in the focus on significant secondary outcomes.
 
 ---
 
@@ -59,11 +65,11 @@ Reported outcome: {out2}
 Answer:""")
 
 
-article_definition_template = PromptTemplate.from_template("""You are a clinical trial report reviewer. Your task is to detect incorrectly reported outcomes.
+wikipedia_definition_template = PromptTemplate.from_template("""You are a clinical trial report reviewer. Your task is to detect incorrectly reported outcomes.
 
 ---
 
-Outcome switching is an unjustified change of the predefined trial outcomes, leading to reporting only the favourable outcomes that support the hypothesis of the researchers. Outcome switching is one of the most common types of spin. It can consist in omitting the primary outcome in the results and conclusions of the abstract, or in the focus on significant secondary outcomes.
+Outcome switching is the practice of changing the primary or secondary outcomes of a clinical trial after its initiation. An outcome is the goal of the clinical trial, such as survival after five years for cancer treatment. Outcome switching can lead to bias and undermine the reliability of the trial, for instance when outcomes are switched after researchers already have access to trial data. That way, researchers can cherry pick an outcome which is statistically significant.
 
 ---
 
@@ -140,6 +146,16 @@ negative_example_template = FewShotPromptTemplate(
 
 positive_example_template = FewShotPromptTemplate(
     example_selector=LabelExampleSelector(examples, [1]),
+    prefix=prefix,
+    example_prompt=example_template,
+    example_separator=example_separator,
+    suffix=suffix,
+    input_variables=['out1', 'out2']
+)
+
+
+similar_example_template = FewShotPromptTemplate(
+    example_selector=SemanticSimilarityExampleSelector.from_examples(str_examples, sentence_transformers_embeddings, Chroma, 1),
     prefix=prefix,
     example_prompt=example_template,
     example_separator=example_separator,

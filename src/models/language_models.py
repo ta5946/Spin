@@ -55,7 +55,7 @@ class OlmoText:
 
 
 class OlmoProbability:
-    def __init__(self, template, threshold=0.8):
+    def __init__(self, template, threshold=0.5):
         self.model = Olmo()
         self.template = template
         self.threshold = threshold
@@ -202,13 +202,23 @@ class Llama:
         self.model = AutoModelForCausalLM.from_pretrained('meta-llama/Meta-Llama-3-8B-Instruct', device_map='cuda', torch_dtype=torch.bfloat16)
         self.no_token = self.tokenizer.encode('No', add_special_tokens=False)[0]
         self.yes_token = self.tokenizer.encode('Yes', add_special_tokens=False)[0]
+        self.text_seperator = '---'
         weave.init('test')
 
     @weave.op
     def generate_text(self, user_text, n_tokens=1000):
-        input_chat = [
-            {'role': 'user', 'content': user_text},
-        ]
+        if self.text_seperator in user_text:
+            system_text = user_text.split('---', 1)[0].strip()
+            user_text = user_text.split('---', 1)[1].strip()
+            input_chat = [
+                {'role': 'system', 'content': system_text},
+                {'role': 'user', 'content': user_text},
+            ]
+        else:
+            input_chat = [
+                {'role': 'user', 'content': user_text},
+            ]
+
         inputs = self.tokenizer.apply_chat_template(input_chat, add_generation_prompt=True, return_tensors='pt').to('cuda')
         n_inputs = inputs.shape[1]
 
@@ -219,9 +229,18 @@ class Llama:
 
     @weave.op
     def generate_probability(self, user_text):
-        input_chat = [
-            {'role': 'user', 'content': user_text},
-        ]
+        if self.text_seperator in user_text:
+            system_text = user_text.split('---', 1)[0].strip()
+            user_text = user_text.split('---', 1)[1].strip()
+            input_chat = [
+                {'role': 'system', 'content': system_text},
+                {'role': 'user', 'content': user_text},
+            ]
+        else:
+            input_chat = [
+                {'role': 'user', 'content': user_text},
+            ]
+
         inputs = self.tokenizer.apply_chat_template(input_chat, add_generation_prompt=True, return_tensors='pt').to('cuda')
         with torch.no_grad():
             outputs = self.model(inputs)

@@ -11,7 +11,7 @@ OUT_FILE = ''
 DATA_FILE = '../data/outcome_similarity/val.tsv'
 
 # TODO Evaluate models
-EXPERIMENT_MODEL = SentenceTransformers()
+EXPERIMENT_MODEL = LlamaProbability(similar_example_template)
 EXPERIMENT_NAME = ''
 
 

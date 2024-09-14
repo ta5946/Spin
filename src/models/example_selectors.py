@@ -1,5 +1,5 @@
 import random
-from langchain_core.example_selectors.base import BaseExampleSelector
+from langchain_core.example_selectors import BaseExampleSelector
 
 
 class RandomExampleSelector(BaseExampleSelector):
