@@ -35,7 +35,7 @@
 - 2600 pairs for prompt tuning and model evaluation.
 - Biased towards **negative examples**, where the reported outcome does not match the primary outcome.
 
-<div style='display: flex; justify-content: space-between;'>
+<div style='display: flex; justify-content: center;'>
     <img src='docs/outcome_similarity/distribution.png' alt='distribution' style='width: 60%;'>
 </div>
 
