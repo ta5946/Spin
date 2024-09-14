@@ -38,6 +38,7 @@ class Olmo:
         yes_score = generated_scores[self.yes_token].item()
         scores = torch.tensor([no_score, yes_score])
         yes_probability = softmax(scores, dim=0)[1].item()
+        # yes_probability = yes_score - no_score
         return yes_probability
 
 

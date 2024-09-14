@@ -11,7 +11,7 @@ OUT_FILE = ''
 DATA_FILE = '../data/outcome_similarity/val.tsv'
 
 # TODO Evaluate models
-EXPERIMENT_MODEL = LlamaProbability(similar_example_template)
+EXPERIMENT_MODEL = OlmoProbability(role_template)
 EXPERIMENT_NAME = ''
 
 
@@ -19,7 +19,7 @@ data_loader = DataLoader(DATA_FILE)
 data = data_loader.load_df().sample(n=200, random_state=0)
 
 model = EXPERIMENT_MODEL
-model_evaluator = ModelEvaluator(model, data)
+model_evaluator = ModelEvaluator(model, data, OUT_FILE)
 
 experiment = Experiment(model_evaluator, EXPERIMENT_NAME)
 experiment.run()

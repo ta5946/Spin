@@ -105,7 +105,7 @@ Primary outcome: {out1}
 
 Reported outcome: {out2}
 
-Answer: {answer}""")
+Answer: {ans}""")
 
 
 example_separator = """

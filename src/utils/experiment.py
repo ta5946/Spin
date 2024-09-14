@@ -2,7 +2,7 @@ import wandb
 
 
 class Experiment:
-    def __init__(self, evaluator, name=''):
+    def __init__(self, evaluator, name=None):
         self.evaluator = evaluator
         self.tracking = bool(name)
 

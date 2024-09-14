@@ -1,16 +1,18 @@
+import os
 from time import time
 from tqdm import tqdm
 from sklearn.metrics import accuracy_score, precision_score, recall_score, f1_score, roc_auc_score
 
 
 class ModelEvaluator:
-    def __init__(self, model, data):
+    def __init__(self, model, data, out_file=None):
         self.model = model
         self.data = data
         self.n_rows = len(data)
         self.scores = []
         self.predictions = []
         self.evaluation_time = 0
+        self.out_file = out_file
 
     def evaluate(self):
         start = time()
@@ -24,6 +26,13 @@ class ModelEvaluator:
 
         end = time()
         self.evaluation_time = end - start
+
+        if self.out_file:
+            out_dir = os.path.dirname(self.out_file)
+            if not os.path.exists(out_dir):
+                os.makedirs(out_dir)
+            self.data['score'] = self.scores
+            self.data.to_csv(self.out_file, sep='\t', index=False)
 
     def get_metrics(self):
         labels = self.data['label']

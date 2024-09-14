@@ -35,7 +35,9 @@
 - 2600 pairs for prompt tuning and model evaluation.
 - Biased towards **negative examples**, where the reported outcome does not match the primary outcome.
 
-![docs/outcome_similarity/distribution.png](docs/outcome_similarity/distribution.png)
+<div style='display: flex; justify-content: space-between;'>
+    <img src='docs/outcome_similarity/distribution.png' alt='distribution' style='width: 60%;'>
+</div>
 
 
 ## Prompt templates
@@ -191,22 +193,46 @@ Answer:
 
 ### Large language models
 
-| Auc score                     | Olmo  | Mistral | BioMistral | Llama     |
-|-------------------------------|-------|---------|------------|-----------|
-| Sentence template             | 0.897 | 0.878   | **0.893**  | 0.875     |
-| Outcome template              | 0.922 | 0.908   | **0.931**  | 0.939     |
-| Role template                 | 0.912 | 0.906   | 0.919      | 0.920     |
-| Article definition template   | 0.897 | 0.922   | 0.907      | **0.931** |
-| Wikipedia definition template | 0.884 | 0.908   | 0.908      | **0.934** |
-| Random example template       | 0.907 | 0.892   | 0.881      | 0.860     |
-| Similar example template      | 0.880 | 0.874   | 0.903      | 0.823     |
+| Auc score                     | Olmo      | Mistral   | BioMistral | Llama     |
+|-------------------------------|-----------|-----------|------------|-----------|
+| Sentence template             | 0.897     | 0.878     | **0.893**  | 0.875     |
+| Outcome template              | 0.922     | 0.908     | **0.931**  | 0.939     |
+| **Role template**             | **0.912** | **0.906** | 0.919      | 0.920     |
+| Article definition template   | 0.897     | 0.922     | 0.907      | **0.931** |
+| Wikipedia definition template | 0.884     | 0.908     | 0.908      | **0.934** |
+| Random example template       | 0.907     | 0.892     | 0.881      | 0.860     |
+| Similar example template      | 0.880     | 0.874     | 0.903      | 0.823     |
 
 > **Note**: Model role is a part of the user prompt, except in the case of Llama that uses a dedicated system prompt.
 
 Key takeaways:
-- Domain specific BioMistral is most effective with minimal prompt engineering.
-- State of the art Llama 3 excels at understanding complex prompts.
-- Olmo and Mistral are relatively stable in their predictions.
+- Domain specific BioMistral is most effective with **minimal prompt engineering**.
+- State of the art Llama 3 excels at understanding **complex prompts**.
+- Olmo and Mistral are relatively **stable** in their predictions.
+
+### Olmo
+<div style='display: flex; justify-content: space-between;'>
+    <img src='docs/outcome_similarity/olmo_scores.png' alt='distribution1' style='width: 45%;'>
+    <img src='docs/outcome_similarity/olmo_confusion.png' alt='distribution2' style='width: 45%;'>
+</div>
+
+### Mistral
+<div style='display: flex; justify-content: space-between;'>
+    <img src='docs/outcome_similarity/mistral_scores.png' alt='distribution1' style='width: 45%;'>
+    <img src='docs/outcome_similarity/mistral_confusion.png' alt='distribution2' style='width: 45%;'>
+</div>
+
+### BioMistral
+<div style='display: flex; justify-content: space-between;'>
+    <img src='docs/outcome_similarity/bio_scores.png' alt='distribution1' style='width: 45%;'>
+    <img src='docs/outcome_similarity/bio_confusion.png' alt='distribution2' style='width: 45%;'>
+</div>
+
+### Llama
+<div style='display: flex; justify-content: space-between;'>
+    <img src='docs/outcome_similarity/llama_scores.png' alt='distribution1' style='width: 45%;'>
+    <img src='docs/outcome_similarity/llama_confusion.png' alt='distribution2' style='width: 45%;'>
+</div>
 
 
 ## References
