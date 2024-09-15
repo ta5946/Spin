@@ -131,6 +131,7 @@ Answer:
 
 - Chain of thought template:
 ```text
+<|endoftext|><|user|>
 You are a clinical trial report reviewer. Your task is to detect incorrectly reported outcomes.
 
 ---
@@ -149,6 +150,7 @@ Steps:
 
 - Random and similar example template:
 ```text
+<|endoftext|><|user|>
 You are a clinical trial report reviewer. Your task is to detect incorrectly reported outcomes.
 
 ---
@@ -188,7 +190,7 @@ Answer:
 | Sequence similarity                  | 0.850     |
 | Spacy embeddings                     | 0.711     |
 | Word2Vec embeddings                  | 0.814     |
-| SciBERT embeddings                   | 0.782     |
+| SciBert embeddings                   | 0.782     |
 | **Sentence transformers embeddings** | **0.884** |
 
 ### Large language models
@@ -280,4 +282,4 @@ Key takeaways:
 - [BioMistral: A Collection of Open-Source Pretrained Large Language Models for Medical Domains](https://arxiv.org/abs/2402.10373)
 - [COMPare: A prospective cohort study correcting and monitoring 58 misreported trials in real time](https://link.springer.com/article/10.1186/s13063-019-3173-2)
 - [Outcome switching](https://en.wikipedia.org/wiki/Outcome_switching)
-- [Youden's J statistic](https://en.wikipedia.org/wiki/Youden%27s_J_statistic)
+- [Youdens J statistic](https://en.wikipedia.org/wiki/Youden%27s_J_statistic)
