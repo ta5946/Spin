@@ -7,11 +7,11 @@ from src.models.language_models import *
 from src.models.prompt_templates import *
 
 load_dotenv()
-OUT_FILE = ''
+OUT_FILE = '../data/out/llama/definition.tsv'
 DATA_FILE = '../data/outcome_similarity/val.tsv'
 
 # TODO Evaluate models
-EXPERIMENT_MODEL = OlmoProbability(role_template)
+EXPERIMENT_MODEL = LlamaProbability(role_template)
 EXPERIMENT_NAME = ''
 
 

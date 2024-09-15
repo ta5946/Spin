@@ -182,14 +182,14 @@ Answer:
 |--------------------------------------|-----------|
 | Constant classifier                  | 0.500     |
 | Random classifier                    | 0.417     |
-| Lemmas classifier                    | 0.831     |
-| **Stems classifier**                 | **0.871** |
-| Levenshtein classifier               | 0.801     |
-| Sequence classifier                  | 0.850     |
-| Spacy classifier                     | 0.711     |
-| Word2Vec classifier                  | 0.814     |
-| SciBERT classifier                   | 0.782     |
-| **Sentence transformers classifier** | **0.884** |
+| Lemmas similarity                    | 0.831     |
+| **Stems similarity**                 | **0.871** |
+| Levenshtein distance                 | 0.801     |
+| Sequence similarity                  | 0.850     |
+| Spacy embeddings                     | 0.711     |
+| Word2Vec embeddings                  | 0.814     |
+| SciBERT embeddings                   | 0.782     |
+| **Sentence transformers embeddings** | **0.884** |
 
 ### Large language models
 
@@ -234,6 +234,19 @@ Key takeaways:
     <img src='docs/outcome_similarity/llama_confusion.png' alt='distribution2' style='width: 45%;'>
 </div>
 
+> **Note**: Model bias is corrected by adjusting the threshold based on Youdens J statistic.
+
+### Final
+
+| Model                            | Accuracy  | F1 score  |
+|----------------------------------|-----------|-----------|
+| Stems similarity                 | 0.830     | 0.691     |
+| Sentence transformers embeddings | 0.875     | 0.706     |
+| **Olmo role prompt**             | 0.870     | **0.723** |
+| Mistral role prompt              | 0.810     | 0.642     |
+| BioMistral role prompt           | 0.840     | 0.673     |
+| **Llama role prompt**            | **0.880** | 0.692     |
+
 
 ## References
 
@@ -246,3 +259,5 @@ Key takeaways:
 - [Analyzing Spin in Abstracts of Orthopaedic Randomized Controlled Trials With Statistically Insignificant Primary Endpoints](https://www.sciencedirect.com/science/article/pii/S0749806320300384?casa_token=646vq-iv8coAAAAA:oVcdcHfVD1GqLqt68JN8XucIxGzKpOyq03dT8xG1sgAV6GIRQgVEQFmyd4O4r5JXHz8ZCenAoQWW)
 - [BioMistral: A Collection of Open-Source Pretrained Large Language Models for Medical Domains](https://arxiv.org/abs/2402.10373)
 - [COMPare: A prospective cohort study correcting and monitoring 58 misreported trials in real time](https://link.springer.com/article/10.1186/s13063-019-3173-2)
+- [Outcome switching](https://en.wikipedia.org/wiki/Outcome_switching)
+- [Youden's J statistic](https://en.wikipedia.org/wiki/Youden%27s_J_statistic)

@@ -1,7 +1,8 @@
 import os
+import numpy as np
 from time import time
 from tqdm import tqdm
-from sklearn.metrics import accuracy_score, precision_score, recall_score, f1_score, roc_auc_score
+from sklearn.metrics import accuracy_score, precision_score, recall_score, f1_score, roc_auc_score, confusion_matrix
 
 
 class ModelEvaluator:
@@ -31,11 +32,28 @@ class ModelEvaluator:
             out_dir = os.path.dirname(self.out_file)
             if not os.path.exists(out_dir):
                 os.makedirs(out_dir)
+
             self.data['score'] = self.scores
             self.data.to_csv(self.out_file, sep='\t', index=False)
 
+            print('Model scores saved to ' + self.out_file)
+
     def get_metrics(self):
         labels = self.data['label']
+        # fpr, tpr, thresholds = roc_curve(labels, self.scores)
+        # j = tpr - fpr
+        # j_threshold = thresholds[j.argmax()]
+
+        threshold_step = 0.1
+        thresholds = np.arange(0.1, 1, threshold_step)
+        j = []
+        for threshold in thresholds:
+            threshold_predictions = np.where(np.array(self.scores) >= threshold, 1, 0)
+            tn, fp, fn, tp = confusion_matrix(labels, threshold_predictions).ravel()
+            fpr = fp / (fp + tn)
+            tpr = tp / (tp + fn)
+            j.append(tpr - fpr)
+        j_threshold = thresholds[np.argmax(j)]
 
         metrics = {
             'negative_ratio': self.predictions.count(0) / self.n_rows,
@@ -45,6 +63,7 @@ class ModelEvaluator:
             'recall_score': recall_score(labels, self.predictions),
             'f1_score': f1_score(labels, self.predictions),
             'auc_score': roc_auc_score(labels, self.scores),
-            'evaluation_time': self.evaluation_time
+            'evaluation_time': self.evaluation_time,
+            'j_threshold': j_threshold,
         }
         return metrics

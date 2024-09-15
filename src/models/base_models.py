@@ -23,7 +23,7 @@ class Constant:
 
 
 class Random:
-    def __init__(self, threshold=0.5):
+    def __init__(self, threshold=0.1):
         self.threshold = threshold
 
     def predict(self, out1, out2):
@@ -34,8 +34,9 @@ class Random:
 
 # Lexical models
 class Lemmas:
-    def __init__(self, threshold=0.5):
+    def __init__(self, threshold=0.3):
         self.threshold = threshold
+        nltk.download('wordnet')
         self.model = WordNetLemmatizer()
 
     def get_set(self, sentence):
@@ -52,7 +53,7 @@ class Lemmas:
 
 
 class Stems:
-    def __init__(self, threshold=0.5):
+    def __init__(self, threshold=0.3):
         self.threshold = threshold
         nltk.download('wordnet')
         self.model = PorterStemmer()

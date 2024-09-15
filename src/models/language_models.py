@@ -56,7 +56,7 @@ class OlmoText:
 
 
 class OlmoProbability:
-    def __init__(self, template, threshold=0.5):
+    def __init__(self, template, threshold=0.1):
         self.model = Olmo()
         self.template = template
         self.threshold = threshold
@@ -120,7 +120,7 @@ class MistralText:
 
 
 class MistralProbability:
-    def __init__(self, template, threshold=0.5):
+    def __init__(self, template, threshold=0.8):
         self.model = Mistral()
         self.template = template
         self.threshold = threshold
@@ -184,7 +184,7 @@ class BioText:
 
 
 class BioProbability:
-    def __init__(self, template, threshold=0.5):
+    def __init__(self, template, threshold=0.2):
         self.model = Bio()
         self.template = template
         self.threshold = threshold
@@ -268,7 +268,7 @@ class LlamaText:
 
 
 class LlamaProbability:
-    def __init__(self, template, threshold=0.5):
+    def __init__(self, template, threshold=0.1):
         self.model = Llama()
         self.template = template
         self.threshold = threshold
