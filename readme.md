@@ -174,7 +174,7 @@ Answer:
 ```
 
 
-## Results
+## Separation results
 
 ### Baseline models
 
@@ -210,6 +210,9 @@ Key takeaways:
 - State of the art Llama 3 excels at understanding **complex prompts**.
 - Olmo and Mistral are relatively **stable** in their predictions.
 
+
+## Classification results
+
 ### Olmo
 <div style='display: flex; justify-content: space-between;'>
     <img src='docs/outcome_similarity/olmo_scores.png' alt='distribution1' style='width: 45%;'>
@@ -236,7 +239,7 @@ Key takeaways:
 
 > **Note**: Model bias is corrected by adjusting the threshold based on Youdens J statistic.
 
-### Final
+### Top models
 
 | Model                            | Accuracy  | F1 score  |
 |----------------------------------|-----------|-----------|
@@ -246,6 +249,23 @@ Key takeaways:
 | Mistral role prompt              | 0.810     | 0.642     |
 | BioMistral role prompt           | 0.840     | 0.673     |
 | **Llama role prompt**            | **0.880** | 0.692     |
+
+### Mistake analysis
+
+| Primary outcome                                                                                        | Reported outcome                                | Label | Olmo prediction | Mistake interpretation                           |
+|--------------------------------------------------------------------------------------------------------|-------------------------------------------------|-------|-----------------|--------------------------------------------------|
+| log HbA 1c                                                                                             | glycaemic control                               | 1     | 0               | **model lacks medical terminology**              |
+| blood pressure                                                                                         | systolic BP                                     | 0     | 1               | model lacks medical terminology                  |
+| difference in plasma bone marker concentration between treatment groups                                | markers of bone formation or resorption         | 0     | 1               | **model lacks reasoning capacity**               |
+| intra-operative pain                                                                                   | pain control                                    | 0     | 1               | model lacks reasoning capacity                   |
+| 1) defecation frequency > 3/week; 2) normalization of stool consistency; 3) no more painful defecation | painful defecation                              | 0     | 1               | **model accepts less detailed reported outcome** |
+| response rates                                                                                         | response rates to a postal health questionnaire | 1     | 0               | model rejects more detailed reported outcome     |
+| pain severity and knee range of motion (ROM)                                                           | pain                                            | 0     | 1               | **dataset inconsistency**                        |
+| the throughput times length of ED stay (LOS)                                                           | times                                           | 1     | 0               | dataset inconsistency                            |
+
+Key takeaways:
+- BioMistral is a better classifier for examples containing medical terminology.
+- Llama is a better classifier for examples requiring complex reasoning.
 
 
 ## References

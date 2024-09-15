@@ -1,0 +1,25 @@
+sent_id	id1	id2	out1	out2	label	score
+680	1812	680	the total stool weight in grams during hospitalization	the mean stool weight during hospital stay	1	0.0001795279822545
+56	1074	839	the proportion of patients with plasma HIV-1 RNA levels <200 copies/mL at week 24	virologic suppression	0	0.9924227595329284
+54	1074	837	the proportion of patients with plasma HIV-1 RNA levels <200 copies/mL at week 24	virologic suppression	0	0.9924227595329284
+106	161	854	HbA1c, lipid levels, blood pressure, BMI after 24 months of follow-up	Glycated hemoglobin A1c	0	0.999925136566162
+258	1328	268	DFS	DFS improvement	1	0.0109869427978992
+556	859	962	blood pressure control	The control rate	1	0.0046095717698335
+480	1541	593	ETDRS visual acuity recorded in the laboratory, supplemented with a number of secondary lab-based visual function measures	logMAR	0	0.8354835510253906
+372	607	578	log HbA 1c	glycaemic control	1	1.5534977819697815e-06
+206	1274	1033	the incidence of predefined GI AEs	GI safety profiles	1	1.8925147742265835e-05
+8	1016	102	blood pressure	systolic BP	0	0.999925136566162
+389	1697	714	"the change in IOP from baseline to week 4 at 8 a.m. and 4 p.m. for the per protocol (PP) population using a ""worse eye"" analysis"	Least squares mean IOP changes	1	1.9947297005273867e-06
+428	1821	207	participation in the Link-Up Study, through attendance at a biospecimen collection site to provide a blood sample and giving written consent to participate, including use of blood samples for genetic and other research	the response rate	1	5.715004363082699e-07
+301	507	873	the change from baseline to 52 weeks of carotid arterial wall volume, reflecting plaque burden, as measured by carotid cardiovascular magnetic resonance	the respective volumes	0	0.999373733997345
+433	1494	47	Number of headache days over a 12 week period (item A MIDAS questionnaire)	the number of migraine like headaches at 12 weeks	1	2.3823690753488338e-07
+291	494	629	the disclosure rate of abuse by women who were identified by the VAWS tool during the three screening sessions compared to those in the interview group	the identification rate	1	2.699577805742593e-07
+587	891	501	improved PFS for the maintenance phase	promising PFS	1	1.0129991096619053e-05
+646	970	644	Difference in plasma bone marker concentration between treatment groups	markers of bone formation or resorption	0	0.1824255138635635
+719	1862	928	knee range of motion (ROM)	the necessary ROM for discharge	1	6.475948453044111e-07
+112	166	348	the percentage of patients who reached 25(OH)D levels of 30 ng/ml or above on day 7	serum 25(OH)D	1	6.962256520637311e-06
+65	108	800	rescue NSAIDs	NSAID use	1	0.0179862100630998
+187	1271	79	change in nutrition knowledge scores, attitudes to healthy eating and acceptability of the intervention by children and teachers	Mean total nutrition knowledge score	0	0.3486451804637909
+218	383	993	PCR-adjusted 42-day cure rates after starting treatment	cure rates	1	0.0474258735775947
+432	978	484	response rate based on a 20% improvement in WOMAC pain scores	The response rates (20% reduction in WOMAC pain)	1	3.726639306478319e-06
+672	1802	1021	The throughput times length of ED stay (LOS)	times	1	0.0011695101857185

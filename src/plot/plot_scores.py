@@ -4,6 +4,7 @@ import matplotlib.pyplot as plt
 
 DATA_FILE = '../../data/out/llama/val.tsv'
 MODEL_NAME = 'Llama'
+MODEL_THRESHOLD = 0.5
 
 
 data = pd.read_csv(DATA_FILE, sep='\t')
@@ -16,7 +17,7 @@ positions = np.random.uniform(0, 1, n_rows)
 
 plt.figure()
 plt.scatter(scores, positions, c=colors, edgecolors='black', alpha=0.7)
-# plt.axvline(x=0.5, color='gray', linestyle='--')
+# plt.axvline(x=MODEL_THRESHOLD, color='gray', linestyle='--')
 plt.yticks([])
 plt.xlabel('score')
 plt.title(MODEL_NAME + ' similarity score scatter for ' + str(n_rows) + ' pairs of outcomes')
