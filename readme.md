@@ -161,7 +161,7 @@ Primary outcome: {example_out1}
 
 Reported outcome: {example_out2}
 
-Answer: {example_answer}
+Answer: {example_ans}
 
 ---
 
@@ -243,14 +243,17 @@ Key takeaways:
 
 ### Top models
 
-| Model                            | Accuracy  | F1 score  |
-|----------------------------------|-----------|-----------|
-| Stems similarity                 | 0.830     | 0.691     |
-| Sentence transformers embeddings | 0.875     | 0.706     |
-| **Olmo role prompt**             | 0.870     | **0.723** |
-| Mistral role prompt              | 0.810     | 0.642     |
-| BioMistral role prompt           | 0.840     | 0.673     |
-| **Llama role prompt**            | **0.880** | 0.692     |
+| Model                                           | Accuracy  | F1 score  |
+|-------------------------------------------------|-----------|-----------|
+| Stems similarity                                | 0.830     | 0.691     |
+| Sentence transformers embeddings                | 0.875     | 0.706     |
+| **Olmo role prompt**                            | 0.870     | **0.723** |
+| Mistral role prompt                             | 0.810     | 0.642     |
+| BioMistral role prompt                          | 0.840     | 0.673     |
+| **Llama role prompt**                           | **0.880** | 0.692     |
+| **Voting classifier** (Olmo, BioMistral, Llama) | **0.885** | **0.729** |
+
+> **Note**: Combination of diverse language models achieves the highest classification accuracy.
 
 ### Mistake analysis
 
@@ -266,8 +269,13 @@ Key takeaways:
 | the throughput times length of ED stay (LOS)                                                           | times                                           | 1     | 0               | dataset inconsistency                            |
 
 Key takeaways:
-- BioMistral is a better classifier for examples containing medical terminology.
-- Llama is a better classifier for examples requiring complex reasoning.
+- BioMistral is more effective for examples containing medical terminology.
+- Llama is more effective for examples requiring complex reasoning.
+
+
+## Explanation results
+
+TODO
 
 
 ## References

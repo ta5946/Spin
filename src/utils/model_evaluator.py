@@ -30,19 +30,16 @@ class ModelEvaluator:
 
         if self.out_file:
             out_dir = os.path.dirname(self.out_file)
-            if not os.path.exists(out_dir):
-                os.makedirs(out_dir)
+            os.makedirs(out_dir, exist_ok=True)
 
             self.data['score'] = self.scores
+            self.data['prediction'] = self.predictions
             self.data.to_csv(self.out_file, sep='\t', index=False)
 
             print('Model scores saved to ' + self.out_file)
 
     def get_metrics(self):
         labels = self.data['label']
-        # fpr, tpr, thresholds = roc_curve(labels, self.scores)
-        # j = tpr - fpr
-        # j_threshold = thresholds[j.argmax()]
 
         threshold_step = 0.1
         thresholds = np.arange(0.1, 1, threshold_step)

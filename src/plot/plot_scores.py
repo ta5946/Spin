@@ -17,7 +17,7 @@ positions = np.random.uniform(0, 1, n_rows)
 
 plt.figure()
 plt.scatter(scores, positions, c=colors, edgecolors='black', alpha=0.7)
-# plt.axvline(x=MODEL_THRESHOLD, color='gray', linestyle='--')
+plt.axvline(x=MODEL_THRESHOLD, color='gray', linestyle='--')
 plt.yticks([])
 plt.xlabel('score')
 plt.title(MODEL_NAME + ' similarity score scatter for ' + str(n_rows) + ' pairs of outcomes')

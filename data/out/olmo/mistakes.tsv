@@ -1,27 +1,27 @@
-sent_id	id1	id2	out1	out2	label	score
-421	655	105	attitudes, knowledge and skills in EBM	knowledge	0	0.7310585975646973
-714	1862	923	pain severity and knee range of motion (ROM)	pain	0	0.9999921321868896
-106	161	854	HbA1c, lipid levels, blood pressure, BMI after 24 months of follow-up	Glycated hemoglobin A1c	0	1.0
-683	1816	851	pain and disability	disability	0	1.0
-556	859	962	blood pressure control	The control rate	1	0.004070138093084
-21	33	981	composite death, reinfarction, stroke, or new myocardial ischemia	The primary combined endpoint of death, recurrent MI and unstable angina	0	0.9999974966049194
-80	126	835	changes in pain as measured on a verbal rating scale from 0 to 10 during a flexion-extension range of motion evaluation and changes in disc height as measured on CT scans	pain	0	1.0
-480	1541	593	ETDRS visual acuity recorded in the laboratory, supplemented with a number of secondary lab-based visual function measures	logMAR	0	0.9999998807907104
-372	607	578	log HbA 1c	glycaemic control	1	2.4300239601871e-05
-206	1274	1033	the incidence of predefined GI AEs	GI safety profiles	1	2.5109990531291263e-08
-8	1016	102	blood pressure	systolic BP	0	1.0
-428	1821	207	participation in the Link-Up Study, through attendance at a biospecimen collection site to provide a blood sample and giving written consent to participate, including use of blood samples for genetic and other research	the response rate	1	5.3157851453988776e-08
-301	507	873	the change from baseline to 52 weeks of carotid arterial wall volume, reflecting plaque burden, as measured by carotid cardiovascular magnetic resonance	the respective volumes	0	1.0
-752	1936	54	changes compared to baseline observed after 4 weeks (40 sessions) of treatment, in parallel groups, on (1) Aberrant Behavior Checklist–Community (ABC) total score and subscale scores, based on the parent's or primary caretaker's rating, (2) Autism Treatment Evaluation Checklist (ATEC) total score and subscale scores, based on the parent's or primary caretaker's rating, and (3) Clinical Global Impression–Improvement (CGI) scale for changes in overall functioning and subscales, as rated by the parent or primary caretaker and also as rated separately by the treating physician (without knowledge of the parental ratings)	overall functioning	0	0.9999974966049194
-683	1816	851	pain and disability	disability	0	1.0
-291	494	629	the disclosure rate of abuse by women who were identified by the VAWS tool during the three screening sessions compared to those in the interview group	the identification rate	1	6.825602838489432e-08
-646	970	644	Difference in plasma bone marker concentration between treatment groups	markers of bone formation or resorption	0	0.9999996423721312
-719	1862	928	knee range of motion (ROM)	the necessary ROM for discharge	1	3.889111610533291e-08
-704	1839	1029	1) defecation frequency > 3/week; 2) normalization of stool consistency; 3) no more painful defecation; 4) absence of abdominal or rectal palpable mass at physical examination	painful defecation	0	0.999996304512024
-592	1701	530	intra-operative pain	pain control	0	0.999948501586914
-326	534	865	response rates	response rates to a postal health questionnaire	1	5.715004363082699e-07
-385	1463	264	the differences in the levels of iFGF23 and iPTH after each treatment period	the levels of iFGF23	0	0.9999998807907104
-729	1882	216	whether or not a survey recipient responded	response rates	1	0.0005527785979211
-672	1802	1021	The throughput times length of ED stay (LOS)	times	1	5.422219146566931e-06
-452	707	1068	health-related quality of life (HRQoL)	6-minute walking distance	0	0.2018132209777832
-276	1337	65	cumulative survival without mechanical ventilation or oxygen dependency at 30 days; mortality at 30 days; therapy failure; crossover rate; and persisting pulmonary problems defined as oxygen dependency or still being on a ventilator at 30 days	survival without supplemental oxygen or on ventilator	0	0.999948501586914
+sent_id	id1	id2	out1	out2	label	score	prediction
+421	655	105	attitudes, knowledge and skills in EBM	knowledge	0	0.7310585975646973	1
+714	1862	923	pain severity and knee range of motion (ROM)	pain	0	0.9999921321868896	1
+106	161	854	HbA1c, lipid levels, blood pressure, BMI after 24 months of follow-up	Glycated hemoglobin A1c	0	1.0	1
+683	1816	851	pain and disability	disability	0	1.0	1
+556	859	962	blood pressure control	The control rate	1	0.004070138093084	0
+21	33	981	composite death, reinfarction, stroke, or new myocardial ischemia	The primary combined endpoint of death, recurrent MI and unstable angina	0	0.9999974966049194	1
+80	126	835	changes in pain as measured on a verbal rating scale from 0 to 10 during a flexion-extension range of motion evaluation and changes in disc height as measured on CT scans	pain	0	1.0	1
+480	1541	593	ETDRS visual acuity recorded in the laboratory, supplemented with a number of secondary lab-based visual function measures	logMAR	0	0.9999998807907104	1
+372	607	578	log HbA 1c	glycaemic control	1	2.4300239601871e-05	0
+206	1274	1033	the incidence of predefined GI AEs	GI safety profiles	1	2.5109990531291263e-08	0
+8	1016	102	blood pressure	systolic BP	0	1.0	1
+428	1821	207	participation in the Link-Up Study, through attendance at a biospecimen collection site to provide a blood sample and giving written consent to participate, including use of blood samples for genetic and other research	the response rate	1	5.3157851453988776e-08	0
+301	507	873	the change from baseline to 52 weeks of carotid arterial wall volume, reflecting plaque burden, as measured by carotid cardiovascular magnetic resonance	the respective volumes	0	1.0	1
+752	1936	54	changes compared to baseline observed after 4 weeks (40 sessions) of treatment, in parallel groups, on (1) Aberrant Behavior Checklist–Community (ABC) total score and subscale scores, based on the parent's or primary caretaker's rating, (2) Autism Treatment Evaluation Checklist (ATEC) total score and subscale scores, based on the parent's or primary caretaker's rating, and (3) Clinical Global Impression–Improvement (CGI) scale for changes in overall functioning and subscales, as rated by the parent or primary caretaker and also as rated separately by the treating physician (without knowledge of the parental ratings)	overall functioning	0	0.9999974966049194	1
+683	1816	851	pain and disability	disability	0	1.0	1
+291	494	629	the disclosure rate of abuse by women who were identified by the VAWS tool during the three screening sessions compared to those in the interview group	the identification rate	1	6.825602838489432e-08	0
+646	970	644	Difference in plasma bone marker concentration between treatment groups	markers of bone formation or resorption	0	0.9999996423721312	1
+719	1862	928	knee range of motion (ROM)	the necessary ROM for discharge	1	3.889111610533291e-08	0
+704	1839	1029	1) defecation frequency > 3/week; 2) normalization of stool consistency; 3) no more painful defecation; 4) absence of abdominal or rectal palpable mass at physical examination	painful defecation	0	0.999996304512024	1
+592	1701	530	intra-operative pain	pain control	0	0.999948501586914	1
+326	534	865	response rates	response rates to a postal health questionnaire	1	5.715004363082699e-07	0
+385	1463	264	the differences in the levels of iFGF23 and iPTH after each treatment period	the levels of iFGF23	0	0.9999998807907104	1
+729	1882	216	whether or not a survey recipient responded	response rates	1	0.0005527785979211	0
+672	1802	1021	The throughput times length of ED stay (LOS)	times	1	5.422219146566931e-06	0
+452	707	1068	health-related quality of life (HRQoL)	6-minute walking distance	0	0.2018132209777832	1
+276	1337	65	cumulative survival without mechanical ventilation or oxygen dependency at 30 days; mortality at 30 days; therapy failure; crossover rate; and persisting pulmonary problems defined as oxygen dependency or still being on a ventilator at 30 days	survival without supplemental oxygen or on ventilator	0	0.999948501586914	1

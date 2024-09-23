@@ -209,8 +209,8 @@ class Llama:
     @weave.op
     def generate_text(self, user_text, n_tokens=1000):
         if self.text_seperator in user_text:
-            system_text = user_text.split('---', 1)[0].strip()
-            user_text = user_text.split('---', 1)[1].strip()
+            system_text = user_text.split(self.text_seperator, 1)[0].strip()
+            user_text = user_text.split(self.text_seperator, 1)[1].strip()
             input_chat = [
                 {'role': 'system', 'content': system_text},
                 {'role': 'user', 'content': user_text},
@@ -231,8 +231,8 @@ class Llama:
     @weave.op
     def generate_probability(self, user_text):
         if self.text_seperator in user_text:
-            system_text = user_text.split('---', 1)[0].strip()
-            user_text = user_text.split('---', 1)[1].strip()
+            system_text = user_text.split(self.text_seperator, 1)[0].strip()
+            user_text = user_text.split(self.text_seperator, 1)[1].strip()
             input_chat = [
                 {'role': 'system', 'content': system_text},
                 {'role': 'user', 'content': user_text},
