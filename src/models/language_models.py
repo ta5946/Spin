@@ -225,7 +225,7 @@ class Llama:
 
         outputs = self.model.generate(inputs, max_new_tokens=n_tokens)
         outputs = outputs[0, n_inputs:]
-        generated_text = self.tokenizer.decode(outputs, skip_special_tokens=False)
+        generated_text = self.tokenizer.decode(outputs, skip_special_tokens=True)
         return generated_text
 
     @weave.op

@@ -198,10 +198,12 @@ Answer:
 | Auc score                     | Olmo      | Mistral   | BioMistral | Llama     |
 |-------------------------------|-----------|-----------|------------|-----------|
 | Sentence template             | 0.897     | 0.878     | **0.893**  | 0.875     |
-| Outcome template              | 0.922     | 0.908     | **0.931**  | 0.939     |
+| Outcome template              | **0.922** | 0.908     | **0.931**  | 0.939     |
 | **Role template**             | **0.912** | **0.906** | 0.919      | 0.920     |
-| Article definition template   | 0.897     | 0.922     | 0.907      | **0.931** |
+| Article definition template   | 0.897     | **0.922** | 0.907      | **0.931** |
 | Wikipedia definition template | 0.884     | 0.908     | 0.908      | **0.934** |
+| Negative example template     | 0.898     | 0.899     | 0.917      | 0.883     |
+| Positive example template     | 0.900     | 0.906     | 0.921      | 0.884     |
 | Random example template       | 0.907     | 0.892     | 0.881      | 0.860     |
 | Similar example template      | 0.880     | 0.874     | 0.903      | 0.823     |
 
@@ -272,6 +274,21 @@ Key takeaways:
 - BioMistral is more effective for examples containing medical terminology.
 - Llama is more effective for examples requiring complex reasoning.
 
+### Edge analysis
+
+Adjusted Olmo threshold is 0.1 and examples close to this value are considered to be on the edge of classification.
+
+| Primary outcome                                                                                          | Reported outcome                           | Label | Olmo score | Olmo prediction | Example interpretation |
+|----------------------------------------------------------------------------------------------------------|--------------------------------------------|-------|------------|-----------------|------------------------|
+| absence of parasites and clinical signs on days 14 and 28, and good clinical and biological tolerability | clinical and parasitological response rate | 0     | 0.020      | 0               | **similar concepts**   |
+| the proportion of patients with plasma HIV-1 RNA levels < 200 copies/mL at week 24                       | virologic suppression                      | 0     | 0.047      | 0               | similar concepts       |
+| sucrose/pacifier effect on pain reduction                                                                | effective                                  | 0     | 0.053      | 0               | **similar phrases**    |
+| improved PFS for the maintenance phase                                                                   | promising PFS                              | 1     | 0.202      | 1               | similar phrases        | 
+| health-related quality of life (HRQOL)                                                                   | 6-minute walking distance                  | 0     | 0.202      | 1               | model confusion        |
+
+Key takeaways:
+- Olmo edge examples are often based on phrase similarity.
+- BioMistral edge examples are often based on concept similarity.
 
 ## Explanation results
 
