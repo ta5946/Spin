@@ -48,6 +48,21 @@ Reported outcome: {out2}
 Answer:""")
 
 
+detail_template = PromptTemplate.from_template("""You are a clinical trial report reviewer. Your task is to detect incorrectly reported outcomes.
+
+Note that all parts and details of a primary outcome should be reported.
+
+---
+
+Is the following primary outcome correctly reported? Answer with either Yes or No.
+
+Primary outcome: {out1}
+
+Reported outcome: {out2}
+
+Answer:""")
+
+
 article_definition_template = PromptTemplate.from_template("""You are a clinical trial report reviewer. Your task is to detect incorrectly reported outcomes.
 
 ---

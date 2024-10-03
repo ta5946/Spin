@@ -1,9 +1,9 @@
 import pandas as pd
 from sklearn.metrics import accuracy_score, precision_score, recall_score, f1_score, roc_auc_score
 
-OLMO_FILE = '../../data/out/olmo/val.tsv'
-BIO_FILE = '../../data/out/bio/val.tsv'
-LLAMA_FILE = '../../data/out/llama/val.tsv'
+OLMO_FILE = '../../data/out/olmo/fix.tsv'
+BIO_FILE = '../../data/out/bio/fix.tsv'
+LLAMA_FILE = '../../data/out/mistral/fix.tsv'
 VOTE_THRESHOLD = 2
 
 

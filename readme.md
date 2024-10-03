@@ -175,6 +175,10 @@ Answer:
 <|assistant|>
 ```
 
+### Few shot
+
+More provided examples did not improve the auc score.
+
 
 ## Separation results
 

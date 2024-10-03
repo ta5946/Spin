@@ -10,7 +10,7 @@ class DataLoader:
 
     def load_dict(self, str_only=False):
         data = self.load_df()
-        data['ans'] = data['label'].apply(lambda label: 'No, the primary outcome is not correctly reported.' if label == 0 else 'Yes, the primary outcome is correctly reported.')
+        data['ans'] = data['label'].apply(lambda label: 'No, the reported outcome does not match the primary outcome.' if label == 0 else 'Yes, the reported outcome matches the primary outcome.')
         if str_only:
             data = data.select_dtypes(include='object')
         return data.to_dict(orient='records')
