@@ -257,6 +257,7 @@ Key takeaways:
 | Mistral role prompt                             | 0.810     | 0.642     |
 | BioMistral role prompt                          | 0.840     | 0.673     |
 | **Llama role prompt**                           | **0.880** | 0.692     |
+| Voting classifier (Olmo, Mistral, BioMistral)   | 0.855     | 0.713     |
 | **Voting classifier** (Olmo, BioMistral, Llama) | **0.885** | **0.729** |
 
 > **Note**: Combination of diverse language models achieves the highest classification accuracy.
@@ -293,6 +294,47 @@ Adjusted Olmo threshold is 0.1 and examples close to this value are considered t
 Key takeaways:
 - Olmo edge examples are often based on phrase similarity.
 - BioMistral edge examples are often based on concept similarity.
+
+### Mistake fix
+
+The prompt is adjusted to reject generalized reported outcomes.
+
+- Detail template:
+```text
+<|endoftext|><|user|>
+You are a clinical trial report reviewer. Your task is to detect incorrectly reported outcomes.
+
+---
+
+Primary outcome is defined at the start of a clinical trial and is the observed variable of the study.
+This outcome is later reported in the results section of the report.
+The reported outcome should match the defined primary outcome.
+That means it should include all its components and details.
+
+---
+
+Does the reported outcome match the defined primary outcome? Answer with either Yes or No.
+
+Primary outcome: {out1}
+
+Reported outcome: {out2}
+
+Answer:
+<|assistant|>
+```
+
+| Model                                         | Threshold | Auc score | Accuracy  | F1 score  |
+|-----------------------------------------------|-----------|-----------|-----------|-----------|
+| Olmo detail prompt                            | 0.3       | 0.906     | 0.885     | **0.729** |
+| Mistral detail prompt                         | 0.4       | 0.932     | 0.885     | **0.716** |
+| BioMistral detail prompt                      | 0.1       | 0.922     | 0.825     | **0.679** |
+| Llama detail prompt                           | 0.1       | 0.931     | 0.830     | _0.393_   |
+| Voting classifier (Olmo, Mistral, BioMistral) | -         | -         | **0.915** | **0.809** |
+| Fine tuned Bert classifier                    | -         | -         | -         | 0.868     |
+
+Key takeaways:
+- Llama is the only model that is too sensitive to the prompt change.
+- Combination of the rest achieves by far the best f1 score.
 
 ## Explanation results
 

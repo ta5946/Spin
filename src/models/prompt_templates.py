@@ -50,11 +50,16 @@ Answer:""")
 
 detail_template = PromptTemplate.from_template("""You are a clinical trial report reviewer. Your task is to detect incorrectly reported outcomes.
 
-Note that all parts and details of a primary outcome should be reported.
+---
+
+Primary outcome is defined at the start of a clinical trial and is the observed variable of the study.
+This outcome is later reported in the results section of the report.
+The reported outcome should match the defined primary outcome.
+That means it should include all its components and details.
 
 ---
 
-Is the following primary outcome correctly reported? Answer with either Yes or No.
+Does the reported outcome match the defined primary outcome? Answer with either Yes or No.
 
 Primary outcome: {out1}
 
