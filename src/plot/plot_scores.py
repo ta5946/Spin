@@ -2,7 +2,7 @@ import numpy as np
 import pandas as pd
 import matplotlib.pyplot as plt
 
-DATA_FILE = '../../data/out/llama/val.tsv'
+DATA_FILE = '../../data/out/llama/fix.tsv'
 MODEL_NAME = 'Llama'
 MODEL_THRESHOLD = 0.5
 

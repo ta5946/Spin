@@ -218,6 +218,10 @@ Key takeaways:
 - State of the art Llama 3 excels at understanding **complex prompts**.
 - Olmo and Mistral are relatively **stable** in their predictions.
 
+<div style='display: flex; justify-content: center;'>
+    <img src='docs/outcome_similarity/curves.png' alt='distribution' style='width: 60%;'>
+</div>
+
 
 ## Classification results
 
@@ -335,6 +339,10 @@ Answer:
 Key takeaways:
 - Llama is the only model that is too sensitive to the prompt change.
 - Combination of the rest achieves by far the best f1 score.
+
+<div style='display: flex; justify-content: center;'>
+    <img src='docs/outcome_similarity/llama_fix_scores.png' alt='distribution' style='width: 45%;'>
+</div>
 
 ## Explanation results
 
