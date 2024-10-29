@@ -38,8 +38,22 @@ class Olmo:
         yes_score = generated_scores[self.yes_token].item()
         scores = torch.tensor([no_score, yes_score])
         yes_probability = softmax(scores, dim=0)[1].item()
-        # yes_probability = yes_score - no_score
         return yes_probability
+
+    @weave.op
+    def generate_explanation(self, user_prediction_text, generated_prediction_text, user_explanation_text, n_tokens=1000):
+        input_chat = [
+            {'role': 'user', 'content': user_prediction_text},
+            {'role': 'assistant', 'content': generated_prediction_text},
+            {'role': 'user', 'content': user_explanation_text}
+        ]
+        inputs = self.tokenizer.apply_chat_template(input_chat, add_generation_prompt=True, return_tensors='pt').to('cuda')
+        n_inputs = inputs.shape[1]
+
+        outputs = self.model.generate(inputs, max_new_tokens=n_tokens)
+        outputs = outputs[0, n_inputs:]
+        generated_text = self.tokenizer.decode(outputs, skip_special_tokens=True)
+        return generated_text
 
 
 class OlmoText:
@@ -52,7 +66,7 @@ class OlmoText:
         generated_text = self.model.generate_text(user_text)
 
         prediction = int('yes' in generated_text.lower())
-        return prediction, prediction
+        return prediction, prediction, ''
 
 
 class OlmoProbability:
@@ -66,7 +80,24 @@ class OlmoProbability:
         score = self.model.generate_probability(user_text)
 
         prediction = int(score >= self.threshold)
-        return score, prediction
+        return score, prediction, ''
+
+
+class OlmoExplanation:
+    def __init__(self, prediction_template, explanation_template, threshold=0.1):
+        self.model = Olmo()
+        self.prediction_template = prediction_template
+        self.explanation_template = explanation_template
+        self.threshold = threshold
+
+    def predict(self, out1, out2):
+        user_prediction_text = self.prediction_template.format(out1=out1, out2=out2)
+        score = self.model.generate_probability(user_prediction_text)
+
+        prediction = int(score >= self.threshold)
+        generated_prediction_text = 'No, the reported outcome does not match the primary outcome.' if prediction == 0 else 'Yes, the reported outcome matches the primary outcome.'
+        explanation = self.model.generate_explanation(user_prediction_text, generated_prediction_text, self.explanation_template)
+        return score, prediction, explanation
 
 
 class Mistral:
@@ -116,7 +147,7 @@ class MistralText:
         generated_text = self.model.generate_text(user_text)
 
         prediction = int('yes' in generated_text.lower())
-        return prediction, prediction
+        return prediction, prediction, ''
 
 
 class MistralProbability:
@@ -130,7 +161,7 @@ class MistralProbability:
         score = self.model.generate_probability(user_text)
 
         prediction = int(score >= self.threshold)
-        return score, prediction
+        return score, prediction, ''
 
 
 class Bio:
@@ -180,7 +211,7 @@ class BioText:
         generated_text = self.model.generate_text(user_text)
 
         prediction = int('yes' in generated_text.lower())
-        return prediction, prediction
+        return prediction, prediction, ''
 
 
 class BioProbability:
@@ -194,7 +225,7 @@ class BioProbability:
         score = self.model.generate_probability(user_text)
 
         prediction = int(score >= self.threshold)
-        return score, prediction
+        return score, prediction, ''
 
 
 class Llama:
@@ -264,7 +295,7 @@ class LlamaText:
         generated_text = self.model.generate_text(user_text)
 
         prediction = int('yes' in generated_text.lower())
-        return prediction, prediction
+        return prediction, prediction, ''
 
 
 class LlamaProbability:
@@ -278,4 +309,4 @@ class LlamaProbability:
         score = self.model.generate_probability(user_text)
 
         prediction = int(score >= self.threshold)
-        return score, prediction
+        return score, prediction, ''

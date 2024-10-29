@@ -344,9 +344,30 @@ Key takeaways:
     <img src='docs/outcome_similarity/llama_fix_scores.png' alt='distribution' style='width: 45%;'>
 </div>
 
+
 ## Explanation results
 
-TODO
+### Open ended
+
+- Explanation template:
+```text
+<|endoftext|><|user|>
+Why? Explain your answer in one sentence.
+            
+Explanation:
+<|assistant|>
+```
+
+| Primary outcome                                        | Reported outcome                           | Olmo prediction | Olmo explanation                                                                                                                                                                                                                                                                                                                |
+|--------------------------------------------------------|--------------------------------------------|-----------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| pain severity and knee range of motion (ROM)           | pain                                       | 0               | The reported outcome is "pain," but the defined primary outcome was "pain severity and knee range of motion (ROM)." The reported outcome does not include the specific components of pain severity, and it does not mention knee ROM. Therefore, the reported outcome does not match the defined primary outcome.               |
+| instrumental birth                                     | intervention during labour and delivery    | 0               | The reported outcome, "intervention during labour and delivery," is broader in scope than the defined primary outcome, "instrumental birth." The primary outcome focuses on the specific method of birth control, while the reported outcome encompasses various interventions and events that occur during labor and delivery. |
+| the total stool weight in grams during hospitalization | the mean stool weight during hospital stay | 1               | The reported outcome, "the mean stool weight during hospital stay," is a measure of the total stool weight during hospitalization, which was the defined primary outcome. The reported outcome includes all components of the primary outcome, such as the total weight, which validates that it is a match.                    |
+| a reduction in depression                              | GDS scores                                 | 1               | The reported outcome, GDS scores, are a measure of depression, which is the primary outcome in this clinical trial. The GDS is a well-known and widely used tool to assess depression in elderly individuals. Therefore, the reported outcome matches the defined primary outcome.                                              |
+
+### Multiple choice
+
+Probabilistic selection of the provided explanations did not reach the desired results.
 
 
 ## References
@@ -362,3 +383,4 @@ TODO
 - [COMPare: A prospective cohort study correcting and monitoring 58 misreported trials in real time](https://link.springer.com/article/10.1186/s13063-019-3173-2)
 - [Outcome switching](https://en.wikipedia.org/wiki/Outcome_switching)
 - [Youdens J statistic](https://en.wikipedia.org/wiki/Youden%27s_J_statistic)
+- [Breaking the Ceiling of the LLM Community by Treating Token Generation as a Classification for Ensembling](https://arxiv.org/abs/2406.12585)

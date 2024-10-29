@@ -182,3 +182,8 @@ similar_example_template = FewShotPromptTemplate(
     suffix=suffix,
     input_variables=['out1', 'out2']
 )
+
+
+explanation_template = """Why? Explain your answer in one sentence.
+            
+Explanation:"""

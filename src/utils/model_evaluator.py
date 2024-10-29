@@ -12,6 +12,7 @@ class ModelEvaluator:
         self.n_rows = len(data)
         self.scores = []
         self.predictions = []
+        self.explanations = []
         self.evaluation_time = 0
         self.out_file = out_file
 
@@ -21,9 +22,10 @@ class ModelEvaluator:
         for index, row in tqdm(self.data.iterrows(), total=self.n_rows, desc='Generating predictions'):
             out1 = row['out1']
             out2 = row['out2']
-            score, prediction = self.model.predict(out1, out2)
+            score, prediction, explanation = self.model.predict(out1, out2)
             self.scores.append(score)
             self.predictions.append(prediction)
+            self.explanations.append(explanation)
 
         end = time()
         self.evaluation_time = end - start
@@ -34,6 +36,7 @@ class ModelEvaluator:
 
             self.data['score'] = self.scores
             self.data['prediction'] = self.predictions
+            self.data['explanation'] = self.explanations
             self.data.to_csv(self.out_file, sep='\t', index=False)
 
             print('Model scores saved to ' + self.out_file)
