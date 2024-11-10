@@ -194,6 +194,9 @@ More provided examples did not improve the auc score.
 | Sequence similarity                  | 0.850     |
 | Spacy embeddings                     | 0.711     |
 | Word2Vec embeddings                  | 0.814     |
+| Path similarity                      | 0.745     |
+| Leacock Chodorow similarity          | 0.732     |
+| Wu Palmer similarity                 | 0.735     |
 | SciBert embeddings                   | 0.782     |
 | **Sentence transformers embeddings** | **0.884** |
 
@@ -253,16 +256,16 @@ Key takeaways:
 
 ### Top models
 
-| Model                                           | Accuracy  | F1 score  |
-|-------------------------------------------------|-----------|-----------|
-| Stems similarity                                | 0.830     | 0.691     |
-| Sentence transformers embeddings                | 0.875     | 0.706     |
-| **Olmo role prompt**                            | 0.870     | **0.723** |
-| Mistral role prompt                             | 0.810     | 0.642     |
-| BioMistral role prompt                          | 0.840     | 0.673     |
-| **Llama role prompt**                           | **0.880** | 0.692     |
-| Voting classifier (Olmo, Mistral, BioMistral)   | 0.855     | 0.713     |
-| **Voting classifier** (Olmo, BioMistral, Llama) | **0.885** | **0.729** |
+| Model                                           | Accuracy  | F1 score  | Prediction time |
+|-------------------------------------------------|-----------|-----------|-----------------|
+| Stems similarity                                | 0.830     | 0.691     | 0.07 s          |
+| Sentence transformers embeddings                | 0.875     | 0.706     | 2.52 s          |
+| **Olmo role prompt**                            | 0.870     | **0.723** | **64.50 s**     |
+| Mistral role prompt                             | 0.810     | 0.642     | 72.09 s         |
+| BioMistral role prompt                          | 0.840     | 0.673     | 71.31 s         |
+| **Llama role prompt**                           | **0.880** | 0.692     | 73.23 s         |
+| Voting classifier (Olmo, Mistral, BioMistral)   | 0.855     | 0.713     | -               |
+| **Voting classifier** (Olmo, BioMistral, Llama) | **0.885** | **0.729** | -               |
 
 > **Note**: Combination of diverse language models achieves the highest classification accuracy.
 
@@ -384,3 +387,5 @@ Probabilistic selection of the provided explanations did not reach the desired r
 - [Outcome switching](https://en.wikipedia.org/wiki/Outcome_switching)
 - [Youdens J statistic](https://en.wikipedia.org/wiki/Youden%27s_J_statistic)
 - [Breaking the Ceiling of the LLM Community by Treating Token Generation as a Classification for Ensembling](https://arxiv.org/abs/2406.12585)
+- [Measuring Massive Multitask Language Understanding](https://arxiv.org/abs/2009.03300)
+- [Can Large Language Models Explain Themselves? A Study of LLM-Generated Self-Explanations](https://arxiv.org/abs/2310.11207)

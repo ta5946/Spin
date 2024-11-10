@@ -7,11 +7,11 @@ from src.models.language_models import *
 from src.models.prompt_templates import *
 
 load_dotenv()
-OUT_FILE = '../data/out/olmo/explanations.tsv'
+OUT_FILE = ''
 DATA_FILE = '../data/outcome_similarity/val.tsv'
 
 # TODO Evaluate models
-EXPERIMENT_MODEL = OlmoExplanation(detail_template, explanation_template, threshold=0.3)
+EXPERIMENT_MODEL = Wup()
 EXPERIMENT_NAME = ''
 
 
