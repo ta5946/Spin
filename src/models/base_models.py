@@ -2,7 +2,7 @@ import random
 import nltk
 import spacy
 import torch
-from nltk import word_tokenize
+from nltk.tokenize import word_tokenize
 from nltk.corpus import wordnet
 from nltk.stem import WordNetLemmatizer, PorterStemmer
 from nltk.wsd import lesk
