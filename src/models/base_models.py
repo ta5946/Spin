@@ -240,9 +240,32 @@ class SciBert:
         return score, prediction, ''
 
 
+class BioBert:
+    def __init__(self, threshold=0.9):
+        self.tokenizer = AutoTokenizer.from_pretrained('dmis-lab/biobert-base-cased-v1.2')
+        self.model = AutoModel.from_pretrained('dmis-lab/biobert-base-cased-v1.2', device_map='cuda')
+        self.threshold = threshold
+
+    def get_vector(self, sentence):
+        inputs = self.tokenizer.encode(sentence)
+        inputs = torch.tensor(inputs).reshape(1, -1).to('cuda')
+
+        with torch.no_grad():
+            outputs = self.model(inputs)
+        return outputs.last_hidden_state[:, 0, :].to('cpu')
+
+    def predict(self, out1, out2):
+        vector1 = self.get_vector(out1)
+        vector2 = self.get_vector(out2)
+
+        score = cosine_similarity(vector1, vector2)[0][0]
+        prediction = int(score >= self.threshold)
+        return score, prediction, ''
+
+
 class SentenceTransformers:
-    def __init__(self, threshold=0.5):
-        self.model = SentenceTransformer('sentence-transformers/all-MiniLM-L6-v2', device='cuda')
+    def __init__(self, threshold=0.4):
+        self.model = SentenceTransformer('sentence-transformers/all-MiniLM-L12-v2', device='cuda', trust_remote_code=True)
         self.threshold = threshold
 
     def get_vector(self, sentence):

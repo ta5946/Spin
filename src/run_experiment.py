@@ -8,15 +8,15 @@ from src.models.prompt_templates import *
 
 load_dotenv()
 OUT_FILE = ''
-DATA_FILE = '../data/outcome_similarity/val.tsv'
+DATA_FILE = '../data/dev/test.tsv'
 
 # TODO Evaluate models
-EXPERIMENT_MODEL = Wup()
+EXPERIMENT_MODEL = SentenceTransformers()
 EXPERIMENT_NAME = ''
 
 
 data_loader = DataLoader(DATA_FILE)
-data = data_loader.load_df().sample(n=200, random_state=0)
+data = data_loader.load_df()
 
 model = EXPERIMENT_MODEL
 model_evaluator = ModelEvaluator(model, data, OUT_FILE)

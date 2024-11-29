@@ -45,7 +45,7 @@ class ModelEvaluator:
         labels = self.data['label']
 
         threshold_step = 0.1
-        thresholds = np.arange(0.1, 1, threshold_step)
+        thresholds = np.arange(threshold_step, 1, threshold_step)
         j = []
         for threshold in thresholds:
             threshold_predictions = np.where(np.array(self.scores) >= threshold, 1, 0)

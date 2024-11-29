@@ -6,7 +6,7 @@ from langchain_chroma import Chroma
 from src.utils.data_loader import DataLoader
 from src.models.example_selectors import *
 
-DATA_FILE = '../data/outcome_similarity/train.tsv'
+DATA_FILE = '../data/dev/train.tsv'
 
 
 data_loader = DataLoader(DATA_FILE)
@@ -89,7 +89,7 @@ wikipedia_definition_template = PromptTemplate.from_template("""You are a clinic
 
 ---
 
-Outcome switching is the practice of changing the primary or secondary outcomes of a clinical trial after its initiation. An outcome is the goal of the clinical trial, such as survival after five years for cancer treatment. Outcome switching can lead to bias and undermine the reliability of the trial, for instance when outcomes are switched after researchers already have access to trial data. That way, researchers can cherry pick an outcome which is statistically significant.
+Outcome switching is the practice of changing the primary or secondary outcomes of a clinical trial after its initiation. An outcome is the goal of the clinical trial, such as survival after five years for cancer treatment. Outcome switching can lead to bias and undermine the reliability of the trial, for instance when outcomes are switched after researchers already have access to trial data. That way researchers can cherry pick an outcome which is statistically significant.
 
 ---
 

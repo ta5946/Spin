@@ -1,0 +1,11 @@
+{
+    "negative_ratio": 0.67,
+    "positive_ratio": 0.33,
+    "accuracy_score": 0.825,
+    "precision_score": 0.5606060606060606,
+    "recall_score": 0.8604651162790697,
+    "f1_score": 0.6788990825688074,
+    "auc_score": 0.9237890682861798,
+    "evaluation_time": 96.74001932144165,
+    "j_threshold": 0.1
+}

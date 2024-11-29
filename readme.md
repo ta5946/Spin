@@ -7,25 +7,31 @@
 - Description: **Open training** and weights general purpose model.
 - Size: 6.9B parameters
 - Release date: February 2024
-- Link: [https://huggingface.co/allenai/OLMo-7B-Instruct-hf](https://huggingface.co/allenai/OLMo-7B-Instruct-hf)
+- Link: https://huggingface.co/allenai/OLMo-7B-Instruct-hf
 
 ### Mistral-7B-Instruct-v0.2
 - Description: Open weights general purpose model.
 - Size: 7.2B parameters
 - Release date: December 2023
-- Link: [https://huggingface.co/mistralai/Mistral-7B-Instruct-v0.2](https://huggingface.co/mistralai/Mistral-7B-Instruct-v0.2)
+- Link: https://huggingface.co/mistralai/Mistral-7B-Instruct-v0.2
 
 ### BioMistral-7B-DARE
 - Description: Open weights medical **domain adapted** model.
 - Size: 7.2B parameters
 - Release date: February 2024
-- Link: [https://huggingface.co/BioMistral/BioMistral-7B-DARE](https://huggingface.co/BioMistral/BioMistral-7B-DARE)
+- Link: https://huggingface.co/BioMistral/BioMistral-7B-DARE
 
 ### Meta-Llama-3-8B-Instruct
 - Description: **State of the art** open weights model.
 - Size: 8B parameters
 - Release date: April 2024
-- Link: [https://huggingface.co/meta-llama/Meta-Llama-3-8B-Instruct](https://huggingface.co/meta-llama/Meta-Llama-3-8B-Instruct)
+- Link: https://huggingface.co/meta-llama/Meta-Llama-3-8B-Instruct
+
+### Gpt-4-Turbo
+- Description: Closed weights API model.
+- Size: Not disclosed
+- Release date: April 2024
+- Link: https://platform.openai.com/docs/models/turbo#gpt-4-turbo-and-gpt-4
 
 
 ## Dataset
@@ -36,8 +42,11 @@
 - Biased towards **negative examples**, where the reported outcome does not match the primary outcome.
 
 <div style='display: flex; justify-content: center;'>
-    <img src='docs/outcome_similarity/distribution.png' alt='distribution' style='width: 60%;'>
+    <img src='img/distribution.png' alt='distribution' style='width: 60%;'>
 </div>
+
+> **Note**: Authors of the original paper used 3043 pairs of outcomes. After deduplication by attributes 
+> `out1`, `out2` and `label` the dataset consists of 2796 rows.
 
 
 ## Prompt templates
@@ -115,7 +124,7 @@ You are a clinical trial report reviewer. Your task is to detect incorrectly rep
 
 ---
 
-Outcome switching is the practice of changing the primary or secondary outcomes of a clinical trial after its initiation. An outcome is the goal of the clinical trial, such as survival after five years for cancer treatment. Outcome switching can lead to bias and undermine the reliability of the trial, for instance when outcomes are switched after researchers already have access to trial data. That way, researchers can cherry pick an outcome which is statistically significant.
+Outcome switching is the practice of changing the primary or secondary outcomes of a clinical trial after its initiation. An outcome is the goal of the clinical trial, such as survival after five years for cancer treatment. Outcome switching can lead to bias and undermine the reliability of the trial, for instance when outcomes are switched after researchers already have access to trial data. That way researchers can cherry pick an outcome which is statistically significant.
 
 ---
 
@@ -222,7 +231,7 @@ Key takeaways:
 - Olmo and Mistral are relatively **stable** in their predictions.
 
 <div style='display: flex; justify-content: center;'>
-    <img src='docs/outcome_similarity/curves.png' alt='distribution' style='width: 60%;'>
+    <img src='img/curves.png' alt='distribution' style='width: 60%;'>
 </div>
 
 
@@ -230,26 +239,26 @@ Key takeaways:
 
 ### Olmo
 <div style='display: flex; justify-content: space-between;'>
-    <img src='docs/outcome_similarity/olmo_scores.png' alt='distribution1' style='width: 45%;'>
-    <img src='docs/outcome_similarity/olmo_confusion.png' alt='distribution2' style='width: 45%;'>
+    <img src='img/olmo_scores.png' alt='distribution1' style='width: 45%;'>
+    <img src='img/olmo_confusion.png' alt='distribution2' style='width: 45%;'>
 </div>
 
 ### Mistral
 <div style='display: flex; justify-content: space-between;'>
-    <img src='docs/outcome_similarity/mistral_scores.png' alt='distribution1' style='width: 45%;'>
-    <img src='docs/outcome_similarity/mistral_confusion.png' alt='distribution2' style='width: 45%;'>
+    <img src='img/mistral_scores.png' alt='distribution1' style='width: 45%;'>
+    <img src='img/mistral_confusion.png' alt='distribution2' style='width: 45%;'>
 </div>
 
 ### BioMistral
 <div style='display: flex; justify-content: space-between;'>
-    <img src='docs/outcome_similarity/bio_scores.png' alt='distribution1' style='width: 45%;'>
-    <img src='docs/outcome_similarity/bio_confusion.png' alt='distribution2' style='width: 45%;'>
+    <img src='img/bio_scores.png' alt='distribution1' style='width: 45%;'>
+    <img src='img/bio_confusion.png' alt='distribution2' style='width: 45%;'>
 </div>
 
 ### Llama
 <div style='display: flex; justify-content: space-between;'>
-    <img src='docs/outcome_similarity/llama_scores.png' alt='distribution1' style='width: 45%;'>
-    <img src='docs/outcome_similarity/llama_confusion.png' alt='distribution2' style='width: 45%;'>
+    <img src='img/llama_scores.png' alt='distribution1' style='width: 45%;'>
+    <img src='img/llama_confusion.png' alt='distribution2' style='width: 45%;'>
 </div>
 
 > **Note**: Model bias is corrected by adjusting the threshold based on Youdens J statistic.
@@ -344,7 +353,7 @@ Key takeaways:
 - Combination of the rest achieves by far the best f1 score.
 
 <div style='display: flex; justify-content: center;'>
-    <img src='docs/outcome_similarity/llama_fix_scores.png' alt='distribution' style='width: 45%;'>
+    <img src='img/llama_fix_scores.png' alt='distribution' style='width: 45%;'>
 </div>
 
 
