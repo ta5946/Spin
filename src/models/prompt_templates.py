@@ -13,7 +13,7 @@ data_loader = DataLoader(DATA_FILE)
 examples = data_loader.load_dict()
 str_examples = data_loader.load_dict(str_only=True)
 
-sentence_transformers_embeddings = HuggingFaceEmbeddings(model_name='sentence-transformers/all-MiniLM-L6-v2')
+sentence_transformers_embeddings = HuggingFaceEmbeddings(model_name='sentence-transformers/all-MiniLM-L12-v2')
 
 
 # Zero shot

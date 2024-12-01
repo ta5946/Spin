@@ -1,6 +1,9 @@
+import os
+import numpy as np
 import torch
 import weave
 from transformers import AutoTokenizer, AutoModelForCausalLM
+from langchain_openai import ChatOpenAI
 from torch.nn.functional import softmax
 
 
@@ -307,6 +310,65 @@ class LlamaProbability:
     def predict(self, out1, out2):
         user_text = self.template.format(out1=out1, out2=out2)
         score = self.model.generate_probability(user_text)
+
+        prediction = int(score >= self.threshold)
+        return score, prediction, ''
+
+
+class Gpt:
+    def __init__(self):
+        OPENAI_API_KEY = os.getenv('OPENAI_API_KEY')
+        self.model = ChatOpenAI(model='gpt-4-turbo-2024-04-09', api_key=OPENAI_API_KEY, temperature=0, max_tokens=1, logprobs=True, top_logprobs=20)
+        self.no_token = 'No'
+        self.yes_token = 'Yes'
+        self.text_seperator = '---'
+        weave.init('test')
+
+    @weave.op
+    def generate_probability(self, user_text):
+        if self.text_seperator in user_text:
+            system_text = user_text.split(self.text_seperator, 1)[0].strip()
+            user_text = user_text.split(self.text_seperator, 1)[1].strip()
+            input_chat = [
+                {'role': 'system', 'content': system_text},
+                {'role': 'user', 'content': user_text},
+            ]
+        else:
+            input_chat = [
+                {'role': 'user', 'content': user_text},
+            ]
+
+        outputs = self.model.invoke(input_chat)
+        generated_logprobs = outputs.response_metadata['logprobs']['content'][0]['top_logprobs']
+        no_logprob = None
+        yes_logprob = None
+        for logprob in generated_logprobs:
+            if logprob['token'] == self.no_token:
+                no_logprob = logprob['logprob']
+            elif logprob['token'] == self.yes_token:
+                yes_logprob = logprob['logprob']
+        if no_logprob is not None and yes_logprob is not None:
+            yes_probability = np.exp(yes_logprob)
+            no_probability = np.exp(no_logprob)
+            return yes_probability / (no_probability + yes_probability)
+        elif no_logprob is None:
+            return 1
+        elif yes_logprob is None:
+            return 0
+        else:
+            return 0.5
+
+
+class GptProbability:
+    def __init__(self, template, threshold=0.1):
+        self.model = Gpt()
+        self.template = template
+        self.threshold = threshold
+
+    def predict(self, out1, out2):
+        user_text = self.template.format(out1=out1, out2=out2)
+        score = self.model.generate_probability(user_text)
+        print(score)
 
         prediction = int(score >= self.threshold)
         return score, prediction, ''

@@ -5,31 +5,36 @@
 
 ### OLMo-7B-Instruct
 - Description: **Open training** and weights general purpose model.
-- Size: 6.9B parameters
+- Model size: 6.9B parameters
+- Vocabulary size: 50k tokens
 - Release date: February 2024
 - Link: https://huggingface.co/allenai/OLMo-7B-Instruct-hf
 
 ### Mistral-7B-Instruct-v0.2
 - Description: Open weights general purpose model.
-- Size: 7.2B parameters
+- Model size: 7.2B parameters
+- Vocabulary size: 32k tokens
 - Release date: December 2023
 - Link: https://huggingface.co/mistralai/Mistral-7B-Instruct-v0.2
 
 ### BioMistral-7B-DARE
 - Description: Open weights medical **domain adapted** model.
-- Size: 7.2B parameters
+- Model size: 7.2B parameters
+- Vocabulary size: 32k tokens
 - Release date: February 2024
 - Link: https://huggingface.co/BioMistral/BioMistral-7B-DARE
 
 ### Meta-Llama-3-8B-Instruct
 - Description: **State of the art** open weights model.
-- Size: 8B parameters
+- Model size: 8B parameters
+- Vocabulary size: 128k tokens
 - Release date: April 2024
 - Link: https://huggingface.co/meta-llama/Meta-Llama-3-8B-Instruct
 
 ### Gpt-4-Turbo
 - Description: Closed weights API model.
-- Size: Not disclosed
+- Model size: Not disclosed
+- Vocabulary size: Not disclosed
 - Release date: April 2024
 - Link: https://platform.openai.com/docs/models/turbo#gpt-4-turbo-and-gpt-4
 

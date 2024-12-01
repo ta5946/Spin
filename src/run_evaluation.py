@@ -9,11 +9,11 @@ from src.models.language_models import *
 from src.models.prompt_templates import *
 
 load_dotenv()
-DATA_DIR = '../data/test/'
+DATA_DIR = '../data/dev/'
 
 # TODO Evaluate models
-EVALUATION_MODEL = LlamaProbability(detail_template)
-MODEL_DIR = 'llama_detail'
+EVALUATION_MODEL = GptProbability(role_template)
+MODEL_DIR = 'gpt_role'
 EVALUATION_NAME = ''
 
 

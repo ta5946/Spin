@@ -24,7 +24,17 @@
 
 ### Text
 
-TODO
+| Model | Prompt                        | Auc score | Accuracy score | Precision | Recall | F1 score |
+|-------|-------------------------------|-----------|----------------|-----------|--------|----------|
+| OLMo  | sentence_template             | 0.801     | 0.860          | 0.667     | 0.698  | 0.682    |
+| OLMo  | outcome_template              | 0.868     | 0.820          | 0.547     | 0.953  | 0.695    |
+| OLMo  | role_template                 | 0.833     | 0.870          | 0.673     | 0.767  | 0.717    |
+| OLMo  | article_definition_template   | 0.818     | 0.860          | 0.653     | 0.744  | 0.696    |
+| OLMo  | wikipedia_definition_template | 0.801     | 0.860          | 0.667     | 0.698  | 0.682    |
+| OLMo  | chain_of_thought_template     | 0.568     | 0.785          | 0.500     | 0.186  | 0.271    |
+| OLMo  | random_example_template       | 0.697     | 0.630          | 0.347     | 0.814  | 0.486    |
+| OLMo  | similar_example_template      | 0.717     | 0.635          | 0.356     | 0.860  | 0.503    |
+
 
 ### Probability
 
@@ -40,8 +50,7 @@ TODO Prompt selection
 | Mistral    | detail_template | 0.4       | 0.935     | 0.890          | 0.784     | 0.674     | 0.725    |
 | BioMistral | detail_template | 0.1       | 0.924     | 0.825          | 0.561     | 0.860     | 0.679    |
 | Llama      | detail_template | 0.1       | 0.935     | 0.830          | 0.846     | 0.256     | 0.393    |
-
-TODO ChatGPT
+| ChatGPT    | role_template   | 0.1       | 0.932     | 0.855          | 0.850     | 0.395     | 0.540    |
 
 
 ## Hard voting models
@@ -81,8 +90,6 @@ TODO ChatGPT
 | Mistral        | detail_template     | 0.2       | 0.932     | 0.894          | 0.789     | 0.692  | 0.737     | 1220.9 s        |
 | BioMistral     | detail_template     | 0.1       | 0.926     | 0.851          | 0.609     | 0.852  | 0.710     | 1222.0 s        |
 | Llama          | detail_template     | 0.1       | 0.945     | 0.853          | 0.962     | 0.329  | 0.490     | 1127.4 s        |
-
-TODO ChatGPT
 
 
 ## Hard voting models
