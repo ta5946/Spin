@@ -11,7 +11,7 @@ OUT_FILE = ''
 DATA_FILE = '../data/dev/test.tsv'
 
 # TODO Evaluate models
-EXPERIMENT_MODEL = OlmoText(similar_example_template)
+EXPERIMENT_MODEL = LlamaProbability(similar_example_template)
 EXPERIMENT_NAME = ''
 
 

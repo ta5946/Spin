@@ -38,7 +38,16 @@
 
 ### Probability
 
-TODO Prompt selection
+| Auc score                     | Olmo      | Mistral   | BioMistral | Llama     |
+|-------------------------------|-----------|-----------|------------|-----------|
+| Sentence template             | 0.900     | 0.883     | 0.897      | 0.877     |
+| Outcome template              | **0.922** | 0.912     | **0.935**  | 0.945     |
+| **Role template**             | **0.913** | 0.911     | **0.922**  | 0.926     |
+| Article definition template   | 0.900     | **0.927** | 0.909      | **0.932** |
+| Wikipedia definition template | 0.887     | **0.916** | 0.913      | **0.937** |
+| Random example template       | 0.896     | 0.890     | 0.885      | 0.880     |
+| Similar example template      | 0.902     | 0.889     | 0.910      | 0.877     |
+
 
 | Model      | Prompt          | Threshold | Auc score | Accuracy score | Precision | Recall    | F1 score |
 |------------|-----------------|-----------|-----------|----------------|-----------|-----------|----------|
