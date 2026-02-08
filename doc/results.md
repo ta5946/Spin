@@ -94,10 +94,12 @@
 | OLMo           | role_template       | 0.1       | 0.922     | 0.866          | 0.653     | 0.802  | 0.720     | 816.8 s         |
 | Mistral        | role_template       | 0.3       | 0.912     | 0.852          | 0.625     | 0.774  | 0.692     | 910.1 s         |
 | **BioMistral** | **role_template**   | 0.2       | 0.925     | 0.881          | 0.712     | 0.751  | **0.731** | 910.5 s         |
+| MedGemma       | role_template       | 0.1       | 0.925     | 0.881          | 0.704     | 0.764  | 0.733     | N/A             |
 | Llama          | role_template       | 0.1       | 0.918     | 0.884          | 0.831     | 0.578  | 0.681     | 930.1 s         |
 | **OLMo**       | **detail_template** | 0.3       | 0.931     | 0.889          | 0.725     | 0.778  | **0.750** | 1120.6 s        |
 | Mistral        | detail_template     | 0.2       | 0.932     | 0.894          | 0.789     | 0.692  | 0.737     | 1220.9 s        |
 | BioMistral     | detail_template     | 0.1       | 0.926     | 0.851          | 0.609     | 0.852  | 0.710     | 1222.0 s        |
+| MedGemma       | detail_template     | 0.1       | 0.926     | 0.847          | 0.601     | 0.854  | 0.706     | N/A             |
 | Llama          | detail_template     | 0.1       | 0.945     | 0.853          | 0.962     | 0.329  | 0.490     | 1127.4 s        |
 
 

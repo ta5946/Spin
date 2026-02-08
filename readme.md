@@ -1,5 +1,11 @@
 # Detecting spin in clinical trials with large language models
 
+Full thesis: https://repozitorij.uni-lj.si/IzpisGradiva.php?id=169018
+
+_Abstract: Spin in research reports includes reporting practices that distort the presentation of results. This is particularly critical in medicine, where spin is present in more than 50% of randomized controlled trials (RCT) that fail to reach the threshold of statistical significance. Comparing declared and reported outcomes is crucial for detecting various types of spin, such as selective reporting. We developed a system for automatic detection of spin in clinical trials. We used 300 pairs of outcomes, labeled with semantic similarity. We evaluated baseline statistical models, masked language models (MLM) and generative large language models (LLM). We generated similarity scores and used Youden index to determine the classification threshold. The proposed approach to comparing outcomes using LLMs involves prompt engineering, generating similarity scores based on token probabilities and majority voting. The results on the test set of 2500 examples, with 90% accuracy and F1 score of 78%, outperform dedicated models for semantic similarity evaluation, but trail behind fine-tuned versions of BERT model. An advantage of our approach is the ability to generate explanations for the classified examples._
+
+🆕 2026 update: We evaluated MedGemma-4b-it and got results similar to BioMistral. Maybe this model would be useful for
+explaining medical terminology and classified examples.
 
 ## Language models
 
@@ -23,6 +29,12 @@
 - Vocabulary size: 32k tokens
 - Release date: February 2024
 - Link: https://huggingface.co/BioMistral/BioMistral-7B-DARE
+
+### MedGemma-4b-it
+- Description: Trained for performance on medical text and images.
+- Model size: 4.3B parameters
+- Release date: May 2025
+- Link: https://huggingface.co/google/medgemma-4b-it
 
 ### Meta-Llama-3-8B-Instruct
 - Description: **State of the art** open weights model.
@@ -397,6 +409,7 @@ Probabilistic selection of the provided explanations did not reach the desired r
 - [Large Language Models are Few-Shot Clinical Information Extractors](https://arxiv.org/abs/2205.12689)
 - [Analyzing Spin in Abstracts of Orthopaedic Randomized Controlled Trials With Statistically Insignificant Primary Endpoints](https://www.sciencedirect.com/science/article/pii/S0749806320300384?casa_token=646vq-iv8coAAAAA:oVcdcHfVD1GqLqt68JN8XucIxGzKpOyq03dT8xG1sgAV6GIRQgVEQFmyd4O4r5JXHz8ZCenAoQWW)
 - [BioMistral: A Collection of Open-Source Pretrained Large Language Models for Medical Domains](https://arxiv.org/abs/2402.10373)
+- [MedGemma Technical Report](https://arxiv.org/abs/2507.05201)
 - [COMPare: A prospective cohort study correcting and monitoring 58 misreported trials in real time](https://link.springer.com/article/10.1186/s13063-019-3173-2)
 - [Outcome switching](https://en.wikipedia.org/wiki/Outcome_switching)
 - [Youdens J statistic](https://en.wikipedia.org/wiki/Youden%27s_J_statistic)
